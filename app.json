@@ -27,10 +27,11 @@
       },
       "package": "com.kanki.quotes",
       "permissions": [
-        "RECEIVE_BOOT_COMPLETED",
-        "SCHEDULE_EXACT_ALARM",
-        "POST_NOTIFICATIONS",
-        "VIBRATE"
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.SCHEDULE_EXACT_ALARM",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO"
       ],
       "predictiveBackGestureEnabled": false
     },
@@ -96,6 +97,29 @@
           ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "ExpoWidgetsTarget",
+                  "bundleIdentifier": "com.kanki.quotes.ExpoWidgetsTarget",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.kanki.quotes"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "e98ce194-4f68-4f77-b48b-c519cd245988"
+      }
+    }
   }
 }
