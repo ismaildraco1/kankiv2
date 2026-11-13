@@ -128,7 +128,7 @@ Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamla
 
 - **Gizlilik Politikası URL'i:** `https://kanki.app/privacy.html` (veya `public/privacy.html` dosyasını GitHub Pages / Netlify / Vercel üzerinde yayınlayın)
 - **Destek / İletişim E-Postası:** `destek@kanki.app`
-- **Yayından önce kontrol:** Gizlilik politikası AdMob reklamlarını, reklam kimliğini ve izleme iznini açıkça anlatmalıdır; `public/privacy.html` ve `privacy-policy.html` şu an bu konuyu yalnızca kısaca ele alıyor, güncellenmelidir.
+- **Not:** `public/privacy.html` ile kökteki `privacy-policy.html` aynı içeriktedir (TR/EN); AdMob reklamlarını, reklam kimliğini, ATT iznini ve ruh hali tercihinin yalnızca cihazda saklandığını açıkça anlatır. Birini değiştirirseniz diğerini de eşitleyin.
 
 ---
 
@@ -140,4 +140,4 @@ Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamla
 - [x] **robots.txt & sitemap.xml**: `public/` altında.
 - [x] **App Icon & Adaptive Icon**: Simge ve Android adaptive katmanları hazır.
 - [ ] **AdMob**: `USE_TEST_ADS` şu an `false`; canlı reklam birimlerinin gerçekten hesabına ait olduğunu doğrula.
-- [ ] **Gizlilik politikası güncellemesi** (bkz. Bölüm 6).
+- [x] **Gizlilik politikası**: AdMob, ATT ve ruh hali tercihi ile güncellendi (14 Kasım 2026).
