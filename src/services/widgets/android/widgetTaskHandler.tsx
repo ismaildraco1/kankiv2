@@ -2,7 +2,9 @@ import React from 'react';
 import type { WidgetTaskHandlerProps } from 'react-native-android-widget';
 
 import {
+  buildMoodWidgetProps,
   currentWidgetQuote,
+  MOOD_WIDGET_NAME,
   toWidgetProps,
   WIDGET_NAME,
 } from '../widgetData';
@@ -13,6 +15,14 @@ import { isAndroidWidgetSupported } from '../widgetPlatform';
  * arka planda bu işleyiciyi çağırır.
  */
 export async function androidWidgetTaskHandler(props: WidgetTaskHandlerProps) {
+  if (props.widgetInfo.widgetName === MOOD_WIDGET_NAME) {
+    if (props.widgetAction === 'WIDGET_ADDED' || props.widgetAction === 'WIDGET_UPDATE' || props.widgetAction === 'WIDGET_RESIZED') {
+      const { KankiMoodAndroidWidget } = await import('./KankiMoodAndroidWidget');
+      props.renderWidget(<KankiMoodAndroidWidget {...buildMoodWidgetProps()} />);
+    }
+    return;
+  }
+
   if (props.widgetInfo.widgetName !== WIDGET_NAME && props.widgetInfo.widgetName !== 'KankiQuote') {
     return;
   }

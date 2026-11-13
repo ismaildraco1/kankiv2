@@ -87,6 +87,19 @@
                   "systemLarge"
                 ]
               }
+            },
+            {
+              "name": "KankiMood",
+              "displayName": "Kanki - Ruh Hali",
+              "description": "Bugünün ruh halin ve son 7 günlük eğilimin",
+              "ios": {
+                "supportedFamilies": [
+                  "accessoryRectangular",
+                  "accessoryInline",
+                  "systemSmall",
+                  "systemMedium"
+                ]
+              }
             }
           ]
         }
@@ -109,6 +122,20 @@
               "maxResizeHeight": "420dp",
               "resizeMode": "horizontal|vertical",
               "widgetCategory": "home_screen|keyguard",
+              "updatePeriodMillis": 1800000
+            },
+            {
+              "name": "KankiMood",
+              "label": "Kanki - Ruh Hali",
+              "description": "Bugünün ruh halin ve son 7 günlük eğilimin",
+              "minWidth": "250dp",
+              "minHeight": "110dp",
+              "targetCellWidth": 4,
+              "targetCellHeight": 2,
+              "minResizeWidth": "250dp",
+              "minResizeHeight": "110dp",
+              "resizeMode": "horizontal|vertical",
+              "widgetCategory": "home_screen",
               "updatePeriodMillis": 1800000
             }
           ]

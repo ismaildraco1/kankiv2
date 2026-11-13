@@ -1,8 +1,9 @@
 import { getCategory } from '@/data/categories';
-import { resolveQuotePool } from '@/data/moods';
+import { getMood, MOODS, resolveQuotePool } from '@/data/moods';
 import { getQuote, QUOTES } from '@/data/quotes';
 import { useAppStore } from '@/store/useAppStore';
 import type { Quote } from '@/types';
+import { dayKey } from '@/utils/format';
 import { quoteOfTheDay } from '@/utils/schedule';
 
 /**
@@ -11,6 +12,8 @@ import { quoteOfTheDay } from '@/utils/schedule';
  * - Android: app.json → react-native-android-widget → widgets[].name
  */
 export const WIDGET_NAME = 'KankiQuote';
+/** Ruh hali widget'ının kimliği (app.json'daki iki widget kaydıyla aynı olmalı) */
+export const MOOD_WIDGET_NAME = 'KankiMood';
 
 /** Widget'a gönderilen veri (iOS'ta JSON olarak paylaşılır, sade tutulmalı) */
 export interface QuoteWidgetProps {
@@ -89,4 +92,56 @@ export function buildWidgetTimeline(now = Date.now()): WidgetTimelineItem[] {
     }
   }
   return items;
+}
+
+/** Ruh hali widget'ına gönderilen veri (iOS'ta JSON olarak paylaşılır, sade tutulmalı) */
+export interface MoodWidgetProps {
+  /** Bugünün ruh hali adı; kayıt yoksa boş */
+  mood: string;
+  /** Bugünün emojisi; kayıt yoksa nötr işaret */
+  emoji: string;
+  /** Son 7 gün (eskiden yeniye) emojileri; kayıt olmayan gün için "·" */
+  week: string[];
+  /** Son 7 günün kısa gün adları, week ile aynı sırada */
+  days: string[];
+  /** Haftanın özeti, ör. "Bu hafta en çok 🌿 Huzurlu" */
+  summary: string;
+  /** Dokununca günlük ekranını açan derin bağlantı */
+  url: string;
+}
+
+export function buildMoodWidgetProps(now = new Date()): MoodWidgetProps {
+  const { moodLog } = useAppStore.getState();
+  const week: string[] = [];
+  const days: string[] = [];
+  const counts = new Map<string, number>();
+
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth(), now.getDate() - i);
+    const entry = moodLog[dayKey(d)];
+    const mood = getMood(entry?.mood);
+    week.push(mood ? mood.emoji : '·');
+    days.push(d.toLocaleDateString('tr-TR', { weekday: 'short' }).slice(0, 3));
+    if (entry) counts.set(entry.mood, (counts.get(entry.mood) ?? 0) + 1);
+  }
+
+  let topId: string | undefined;
+  let topN = 0;
+  counts.forEach((n, id) => {
+    if (n > topN) {
+      topN = n;
+      topId = id;
+    }
+  });
+  const top = MOODS.find((m) => m.id === topId);
+
+  const today = getMood(moodLog[dayKey(now)]?.mood);
+  return {
+    mood: today?.label ?? '',
+    emoji: today?.emoji ?? '🙂',
+    week,
+    days,
+    summary: top ? `Bu hafta en çok ${top.emoji} ${top.label}` : 'Bugün nasıl hissediyorsun?',
+    url: 'kanki://journal',
+  };
 }

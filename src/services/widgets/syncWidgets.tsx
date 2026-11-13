@@ -1,8 +1,10 @@
 import React from 'react';
 
 import {
+  buildMoodWidgetProps,
   buildWidgetTimeline,
   currentWidgetQuote,
+  MOOD_WIDGET_NAME,
   toWidgetProps,
   WIDGET_NAME,
 } from './widgetData';
@@ -62,6 +64,39 @@ export async function syncWidgets(): Promise<void> {
       });
     } catch (e) {
       console.warn('[widgets-android] syncWidgets failed', e);
+    }
+  }
+
+  await syncMoodWidget().catch(console.warn);
+}
+
+/**
+ * Yalnızca ruh hali widget'ını (iOS + Android) günceller. Günlük kaydı değişince çağrılır.
+ */
+export async function syncMoodWidget(): Promise<void> {
+  const props = buildMoodWidgetProps();
+
+  if (isIosWidgetSupported()) {
+    try {
+      const { default: KankiMoodWidget } = await import('./ios/KankiMoodWidget');
+      KankiMoodWidget.updateSnapshot(props);
+      KankiMoodWidget.reload();
+    } catch (e) {
+      console.warn('[widgets-ios] syncMoodWidget failed', e);
+    }
+  }
+
+  if (isAndroidWidgetSupported()) {
+    try {
+      const { requestWidgetUpdate } = await import('react-native-android-widget');
+      const { KankiMoodAndroidWidget } = await import('./android/KankiMoodAndroidWidget');
+      await requestWidgetUpdate({
+        widgetName: MOOD_WIDGET_NAME,
+        renderWidget: () => <KankiMoodAndroidWidget {...props} />,
+        widgetNotFound: () => {},
+      });
+    } catch (e) {
+      console.warn('[widgets-android] syncMoodWidget failed', e);
     }
   }
 }

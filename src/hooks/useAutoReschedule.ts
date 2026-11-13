@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { AppState } from 'react-native';
 
 import { refillIfNeeded, rescheduleAll } from '@/services/notifications/scheduler';
+import { syncMoodWidget } from '@/services/widgets/syncWidgets';
 import { useAppStore } from '@/store/useAppStore';
 
 /**
@@ -12,7 +13,15 @@ export function useAutoReschedule(ready: boolean) {
   const notification = useAppStore((s) => s.notification);
   const categories = useAppStore((s) => s.enabledCategories);
   const homeMood = useAppStore((s) => s.homeMood);
+  const moodLog = useAppStore((s) => s.moodLog);
   const first = useRef(true);
+
+  // Günlük kaydı değişince ruh hali widget'ını güncelle
+  useEffect(() => {
+    if (!ready) return;
+    const t = setTimeout(() => syncMoodWidget().catch(console.warn), 400);
+    return () => clearTimeout(t);
+  }, [ready, moodLog]);
 
   useEffect(() => {
     if (!ready) return;

@@ -31,7 +31,7 @@ Her gün tek dokunuşla ruh halini kaydet, istersen kısa bir not ekle. Son 7 g�
 Her gün seçilmiş bir söz seni karşılar. Kategori çiplerine dokunarak yeni sözler keşfet, karıştır, favorilerine ekle.
 
 ✦ Kilit Ekranı ve Ana Ekran Widget'ları
-Uygulamayı açmadan günün sözünü kilit ekranında veya ana ekranda gör.
+Uygulamayı açmadan günün sözünü kilit ekranında veya ana ekranda gör. Ayrıca Ruh Hali widget'ı bugünün ruh halini ve son 7 günlük eğilimini gösterir; dokununca günlüğü açar.
 
 ✦ Zamanlanabilir Bildirimler
 Belirlediğin saat aralığında rastgele ya da sabit saatlerde bildirim al. Gün ve sıklığı sen seçersin.
@@ -103,7 +103,7 @@ Kendine her gün kısa bir ilham molası ver.
    * **Ekran 2b (Ruh Hali Günlüğü):** Başlık: *"Ruh Halini Takip Et"* — Açıklama: *"Günlük kayıt, kısa not ve haftalık eğilim."*
 3. **Ekran 3 (Widget Önizlemesi):**
    * Başlık: *"Kilit Ekranında Canlı Sözler"*
-   * Açıklama: *"Uygulamayı açmadan günün sözünü gör."*
+   * Açıklama: *"Günün sözü ve ruh hali widget'ı, uygulamayı açmadan."*
 4. **Ekran 4 (Hikaye Paylaşım Stüdyosu):**
    * Başlık: *"Tek Dokunuşla Paylaş"*
    * Açıklama: *"Kendi fotoğrafınla söz kartları hazırla."*
@@ -121,7 +121,7 @@ Kendine her gün kısa bir ilham molası ver.
 Kanki, bir ruh hali takip günlüğü ile ruh haline göre söz önerisini birleştiren bir uygulamadır. Ayırt edici işlevler:
 1) Ruh Hali Günlüğü: günlük ruh hali kaydı, kısa not, son 7 gün görünümü ve haftalık en baskın ruh hali özeti.
 2) Ruh hali seçimi ve onaya bağlı kalıcı söz seti; atanan set ana sayfayı, bildirimleri ve widget'ı kişiselleştirir.
-3) Kilit ekranı / ana ekran widget'ları (iOS ve Android).
+3) İki widget (iOS ve Android): günün sözü ve ruh hali widget'ı (bugünün ruh hali + 7 günlük şerit).
 4) Zamanlanabilir yerel bildirimler (rastgele veya sabit saatler).
 5) Kullanıcının kendi fotoğrafıyla söz kartı üretip paylaşabildiği stüdyo.
 Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamları içerir.
