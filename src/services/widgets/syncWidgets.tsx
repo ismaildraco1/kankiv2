@@ -26,7 +26,7 @@ export async function syncWidgets(): Promise<void> {
         text: 'Her yeni gün, taze bir başlangıçtır.',
         author: 'Kanki',
         category: 'Günün Sözü',
-        accent: '#A78BFA',
+        accent: '#FF8A6B',
         url: 'kanki://',
       };
 

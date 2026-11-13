@@ -27,25 +27,25 @@ interface ThemeOption {
 const THEME_OPTIONS: readonly ThemeOption[] = [
   {
     id: 'oled',
-    name: 'OLED Dark',
-    badge: 'Saf Siyah & OLED',
-    description: 'Piksel kapatıcı zemin, minimalist ve göz yormayan derin huzur.',
+    name: 'Gece Yarısı',
+    badge: 'Saf Siyah & Buz Mavisi',
+    description: 'Piksel kapatıcı siyah zemin, serin turkuaz vurgular ve derin huzur.',
     icon: 'moon',
     previewColors: THEMES.oled.previewColors,
   },
   {
     id: 'vibrant',
-    name: 'Renkli',
-    badge: 'Kozmik Aurora',
-    description: 'Dinamik göksel gradientler, mor/indigo neon vurgular ve canlı enerji.',
+    name: 'Kızıl Akşam',
+    badge: 'Közden Mercana Işıltı',
+    description: 'Erik moru zeminde mercan ve amber ışıltılar, sıcak ve canlı bir gece.',
     icon: 'sparkles',
     previewColors: THEMES.vibrant.previewColors,
   },
   {
     id: 'warm',
-    name: 'Warm Minimal',
-    badge: 'Kitap & Sıcak Parşömen',
-    description: 'Sıcak krem/kahve tonları, kağıt sayfası hissi veren klasik zarafet.',
+    name: 'Adaçayı',
+    badge: 'Kâğıt & Yeşil Mürekkep',
+    description: 'Açık adaçayı zemin ve koyu yeşil mürekkep, sakin bir okuma hissi.',
     icon: 'sunny',
     previewColors: THEMES.warm.previewColors,
   },
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   stepOverline: {
     letterSpacing: 2,
     fontSize: 10.5,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
     marginBottom: 6,
   },
   title: {
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
   themeName: {
     fontSize: 16,
     lineHeight: 20,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   badgeText: {
     fontSize: 11,

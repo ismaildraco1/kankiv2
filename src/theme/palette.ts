@@ -33,15 +33,15 @@ export interface Palette {
 }
 
 /**
- * 1. "Daha Koyu (OLED Dark) Tema":
+ * 1. "Gece Yarısı" teması:
  * Tamamen siyah zemin (#000000), minimalist ve göz yormayan derin yapı.
  * Piksel kapatıcı saf siyah, gümüş/platin vurgular ve maksimum pil tasarrufu.
  */
 export const oledPalette: Palette = {
   id: 'oled',
-  name: 'OLED Dark',
-  subtitle: 'Sonsuz Derinlik & OLED Siyah',
-  description: 'Tamamen siyah zemin (#000000), minimalist ve göz yormayan derin yapı.',
+  name: 'Gece Yarısı',
+  subtitle: 'Saf Siyah & Buz Mavisi',
+  description: 'Saf siyah zemin, serin turkuaz vurgular ve maksimum pil tasarrufu.',
   scheme: 'dark',
   background: ['#000000', '#030303', '#000000'],
   orbs: [
@@ -57,88 +57,88 @@ export const oledPalette: Palette = {
   glassStrong: 'rgba(24, 24, 28, 0.94)',
   glassBorder: 'rgba(255, 255, 255, 0.10)',
   glassGleam: 'rgba(255, 255, 255, 0.20)',
-  accent: '#E4E4E7',
-  accentSoft: 'rgba(255, 255, 255, 0.10)',
-  accentGradient: ['#FFFFFF', '#71717A'],
+  accent: '#5EEAD4',
+  accentSoft: 'rgba(94, 234, 212, 0.14)',
+  accentGradient: ['#5EEAD4', '#38BDF8'],
   gold: '#F59E0B',
   goldSoft: 'rgba(245, 158, 11, 0.16)',
   danger: '#F43F5E',
   success: '#10B981',
   blurTint: 'dark',
   statusBar: 'light',
-  previewColors: ['#000000', '#E4E4E7', '#18181C'],
+  previewColors: ['#000000', '#5EEAD4', '#18181C'],
 };
 
 /**
- * 2. "Renkli / Vibrant Tema":
+ * 2. "Kızıl Akşam" teması:
  * Dinamik gradient geçişleri, mor/indigo neon detaylar ve canlı vurgular.
  */
 export const vibrantPalette: Palette = {
   id: 'vibrant',
-  name: 'Renkli',
-  subtitle: 'Kozmik Aurora & Neon Vurgular',
-  description: 'Dinamik gradient geçişleri, mor/indigo neon detaylar ve canlı vurgular.',
+  name: 'Kızıl Akşam',
+  subtitle: 'Közden Mercana Işıltı',
+  description: 'Erik moru zemin üzerinde mercan ve amber ışıltılar, sıcak ve canlı bir gece.',
   scheme: 'dark',
-  background: ['#07051A', '#120A2E', '#0A0E24'],
+  background: ['#150812', '#241024', '#0E0B1C'],
   orbs: [
-    'rgba(139, 92, 246, 0.48)', // Astral Violet
-    'rgba(244, 63, 94, 0.36)',  // Neon Rose
-    'rgba(6, 182, 212, 0.30)',  // Cyan Nebula
-    'rgba(245, 158, 11, 0.24)', // Sunset Amber
+    'rgba(255, 138, 107, 0.42)', // Coral Ember
+    'rgba(232, 84, 140, 0.34)', // Dusk Magenta
+    'rgba(45, 180, 170, 0.22)', // Lagoon Teal
+    'rgba(251, 191, 36, 0.22)', // Amber Glow
   ],
   text: '#FFFFFF',
-  textMuted: 'rgba(243, 240, 255, 0.74)',
-  textFaint: 'rgba(243, 240, 255, 0.44)',
-  glass: 'rgba(24, 18, 46, 0.68)',
-  glassStrong: 'rgba(34, 26, 62, 0.88)',
-  glassBorder: 'rgba(192, 132, 252, 0.20)',
+  textMuted: 'rgba(255, 240, 236, 0.74)',
+  textFaint: 'rgba(255, 240, 236, 0.44)',
+  glass: 'rgba(44, 20, 38, 0.66)',
+  glassStrong: 'rgba(58, 28, 48, 0.88)',
+  glassBorder: 'rgba(255, 170, 140, 0.20)',
   glassGleam: 'rgba(255, 255, 255, 0.30)',
-  accent: '#A78BFA',
-  accentSoft: 'rgba(167, 139, 250, 0.20)',
-  accentGradient: ['#8B5CF6', '#EC4899'],
+  accent: '#FF8A6B',
+  accentSoft: 'rgba(255, 138, 107, 0.18)',
+  accentGradient: ['#FF8A6B', '#E8548C'],
   gold: '#F6C56F',
   goldSoft: 'rgba(246, 197, 111, 0.20)',
   danger: '#FB7185',
   success: '#34D399',
   blurTint: 'dark',
   statusBar: 'light',
-  previewColors: ['#0E0A28', '#A78BFA', '#241A42'],
+  previewColors: ['#1A0A16', '#FF8A6B', '#3A1C30'],
 };
 
 /**
- * 3. "Yumuşak / Warm Minimal Tema":
+ * 3. "Adaçayı" teması:
  * Gözü yormayan pastel/kahve/krem tonları, kağıt/kitap hissi veren klasik zarafet.
  */
 export const warmPalette: Palette = {
   id: 'warm',
-  name: 'Yumuşak (Warm Minimal)',
-  subtitle: 'Kitap Sayfası & Sıcak Parşömen',
-  description: 'Gözü yormayan pastel/kahve/krem tonları, kağıt/kitap hissi veren klasik zarafet.',
+  name: 'Adaçayı',
+  subtitle: 'Kâğıt Dokusu & Yeşil Mürekkep',
+  description: 'Gözü yormayan açık adaçayı zemin ve koyu yeşil mürekkep, sakin bir okuma hissi.',
   scheme: 'light',
-  background: ['#F8F5EE', '#F2ECE1', '#EBE3D5'],
+  background: ['#F5F7F1', '#ECF0E4', '#E2E8D8'],
   orbs: [
-    'rgba(217, 180, 142, 0.42)',
-    'rgba(235, 200, 168, 0.35)',
-    'rgba(202, 175, 145, 0.30)',
-    'rgba(224, 192, 160, 0.28)',
+    'rgba(170, 200, 160, 0.42)',
+    'rgba(205, 220, 170, 0.35)',
+    'rgba(150, 185, 170, 0.30)',
+    'rgba(215, 205, 160, 0.28)',
   ],
-  text: '#241C15',
-  textMuted: 'rgba(36, 28, 21, 0.70)',
-  textFaint: 'rgba(36, 28, 21, 0.42)',
-  glass: 'rgba(255, 253, 249, 0.82)',
-  glassStrong: 'rgba(255, 254, 251, 0.94)',
-  glassBorder: 'rgba(180, 150, 120, 0.22)',
+  text: '#18241C',
+  textMuted: 'rgba(24, 36, 28, 0.70)',
+  textFaint: 'rgba(24, 36, 28, 0.42)',
+  glass: 'rgba(252, 254, 249, 0.82)',
+  glassStrong: 'rgba(253, 255, 251, 0.94)',
+  glassBorder: 'rgba(110, 140, 115, 0.24)',
   glassGleam: 'rgba(255, 255, 255, 0.95)',
-  accent: '#9A5B32',
-  accentSoft: 'rgba(154, 91, 50, 0.12)',
-  accentGradient: ['#9A5B32', '#C6804E'],
-  gold: '#B87333',
-  goldSoft: 'rgba(184, 115, 51, 0.16)',
+  accent: '#2F6B4A',
+  accentSoft: 'rgba(47, 107, 74, 0.12)',
+  accentGradient: ['#2F6B4A', '#5E9A76'],
+  gold: '#A8742B',
+  goldSoft: 'rgba(168, 116, 43, 0.16)',
   danger: '#DC2626',
   success: '#15803D',
   blurTint: 'light',
   statusBar: 'dark',
-  previewColors: ['#F8F5EE', '#9A5B32', '#FFFDF9'],
+  previewColors: ['#F5F7F1', '#2F6B4A', '#FCFEF9'],
 };
 
 export const THEMES: Record<ThemeId, Palette> = {

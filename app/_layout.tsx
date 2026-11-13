@@ -1,8 +1,8 @@
 // Arka plan görevi modül kapsamında tanımlanmalı → en üstte import
 import '@/services/notifications/backgroundTask';
 
-import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
-import { PlayfairDisplay_400Regular_Italic, PlayfairDisplay_600SemiBold } from '@expo-google-fonts/playfair-display';
+import { DMSans_400Regular, DMSans_500Medium, DMSans_600SemiBold, DMSans_700Bold } from '@expo-google-fonts/dm-sans';
+import { Fraunces_400Regular_Italic, Fraunces_600SemiBold } from '@expo-google-fonts/fraunces';
 import { useFonts } from 'expo-font';
 import { Stack, ThemeProvider as NavThemeProvider } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -27,12 +27,12 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    PlayfairDisplay_400Regular_Italic,
-    PlayfairDisplay_600SemiBold,
+    DMSans_400Regular,
+    DMSans_500Medium,
+    DMSans_600SemiBold,
+    DMSans_700Bold,
+    Fraunces_400Regular_Italic,
+    Fraunces_600SemiBold,
   });
   const [hydrated, setHydrated] = useState(useAppStore.persist.hasHydrated());
 

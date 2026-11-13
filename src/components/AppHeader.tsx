@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   logoBadge: {
-    shadowColor: '#8B5CF6',
+    shadowColor: '#FF8A6B',
     shadowOpacity: 0.35,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 3 },
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   brandTitle: {
     fontSize: 24,
     lineHeight: 28,
-    fontFamily: 'PlayfairDisplay_600SemiBold',
+    fontFamily: 'Fraunces_600SemiBold',
     letterSpacing: -0.3,
   },
   rightGroup: {
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 12,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'DMSans_500Medium',
   },
   settingsBtn: {
     width: 36,

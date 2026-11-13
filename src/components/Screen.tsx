@@ -106,14 +106,14 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   overlineText: {
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
     letterSpacing: 1.8,
     fontSize: 11,
   },
   titleText: {
     fontSize: 34,
     lineHeight: 40,
-    fontFamily: 'PlayfairDisplay_600SemiBold',
+    fontFamily: 'Fraunces_600SemiBold',
     letterSpacing: -0.4,
   },
   subtitleText: {

@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     opacity: 0.45,
   },
-  text: { flex: 1, fontSize: 13, fontFamily: 'Inter_500Medium' },
+  text: { flex: 1, fontSize: 13, fontFamily: 'DMSans_500Medium' },
   arrow: { width: 26, height: 26, borderRadius: 13, alignItems: 'center', justifyContent: 'center' },
 });

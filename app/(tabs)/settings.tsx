@@ -112,7 +112,7 @@ export default function SettingsScreen() {
             <View style={styles.inlineWarning}>
               <Ionicons name="alert-circle" size={22} color={t.danger} />
               <View style={{ flex: 1 }}>
-                <AppText variant="body" style={{ fontFamily: 'Inter_700Bold', color: t.danger }}>
+                <AppText variant="body" style={{ fontFamily: 'DMSans_700Bold', color: t.danger }}>
                   Bildirim İzni Kapalı
                 </AppText>
                 <AppText variant="label" tone="muted">
@@ -211,7 +211,7 @@ export default function SettingsScreen() {
                   style={[styles.timeCell, styles.addTimeCard, { borderColor: t.glassBorder }]}
                 >
                   <Ionicons name="add" size={18} color={t.accent} />
-                  <AppText variant="label" tone="accent" style={{ fontFamily: 'Inter_500Medium' }}>
+                  <AppText variant="label" tone="accent" style={{ fontFamily: 'DMSans_500Medium' }}>
                     Saat Ekle
                   </AppText>
                 </PressableScale>
@@ -248,7 +248,7 @@ export default function SettingsScreen() {
             <Ionicons name="paper-plane" size={16} color="#FFFFFF" />
             <AppText
               variant="label"
-              style={{ color: '#FFFFFF', fontFamily: 'Inter_700Bold', fontSize: 14 }}
+              style={{ color: '#FFFFFF', fontFamily: 'DMSans_700Bold', fontSize: 14 }}
             >
               Şimdi Test Bildirimi Gönder
             </AppText>
@@ -280,7 +280,7 @@ export default function SettingsScreen() {
               <Ionicons name="lock-closed-outline" size={20} color={t.accent} />
             </View>
             <View style={{ flex: 1 }}>
-              <AppText variant="body" style={{ fontFamily: 'Inter_700Bold' }}>
+              <AppText variant="body" style={{ fontFamily: 'DMSans_700Bold' }}>
                 Kilit Ekranı & Ana Sayfa
               </AppText>
               <AppText variant="label" tone="muted">
@@ -317,7 +317,7 @@ export default function SettingsScreen() {
                     color: '#67E8F9',
                     fontSize: 22,
                     lineHeight: 24,
-                    fontFamily: 'Inter_700Bold',
+                    fontFamily: 'DMSans_700Bold',
                     textShadowColor: 'rgba(56, 189, 248, 0.55)',
                     textShadowRadius: 8,
                     textShadowOffset: { width: 0, height: 0 },
@@ -332,7 +332,7 @@ export default function SettingsScreen() {
                 variant="body"
                 style={{
                   color: '#FFFFFF',
-                  fontFamily: 'Inter_600SemiBold',
+                  fontFamily: 'DMSans_600SemiBold',
                   fontSize: widgetPreviewQuote.text.length > 115 ? 14 : 15.5,
                   lineHeight: widgetPreviewQuote.text.length > 115 ? 20 : 22,
                   textAlign: 'left',
@@ -354,7 +354,7 @@ export default function SettingsScreen() {
                   variant="label"
                   style={{
                     color: 'rgba(226, 232, 240, 0.72)',
-                    fontFamily: 'Inter_500Medium',
+                    fontFamily: 'DMSans_500Medium',
                     fontSize: 11.5,
                   }}
                 >
@@ -392,15 +392,15 @@ export default function SettingsScreen() {
           >
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
               <Ionicons name="bulb-outline" size={15} color={t.accent} />
-              <AppText variant="label" style={{ fontFamily: 'Inter_600SemiBold', color: t.text }}>
+              <AppText variant="label" style={{ fontFamily: 'DMSans_600SemiBold', color: t.text }}>
                 Nasıl Eklenir?
               </AppText>
             </View>
             <AppText variant="label" tone="muted" style={{ lineHeight: 18 }}>
-              • <AppText variant="label" style={{ fontFamily: 'Inter_600SemiBold' }}>iOS Kilit Ekranı:</AppText> Kilit ekranına basılı tut → Özelleştir → Widget Ekle → Kanki seç.
+              • <AppText variant="label" style={{ fontFamily: 'DMSans_600SemiBold' }}>iOS Kilit Ekranı:</AppText> Kilit ekranına basılı tut → Özelleştir → Widget Ekle → Kanki seç.
             </AppText>
             <AppText variant="label" tone="muted" style={{ lineHeight: 18 }}>
-              • <AppText variant="label" style={{ fontFamily: 'Inter_600SemiBold' }}>Ana Ekran:</AppText> Boş alana basılı tut → (+) Widget Ekle → Kanki seç.
+              • <AppText variant="label" style={{ fontFamily: 'DMSans_600SemiBold' }}>Ana Ekran:</AppText> Boş alana basılı tut → (+) Widget Ekle → Kanki seç.
             </AppText>
           </View>
 
@@ -434,7 +434,7 @@ export default function SettingsScreen() {
                   }}
                 >
                   <Ionicons name="refresh" size={15} color={t.accent} />
-                  <AppText variant="label" tone="accent" style={{ fontFamily: 'Inter_600SemiBold' }}>
+                  <AppText variant="label" tone="accent" style={{ fontFamily: 'DMSans_600SemiBold' }}>
                     Widget'ları Yenile
                   </AppText>
                 </View>
@@ -476,7 +476,7 @@ export default function SettingsScreen() {
                   }}
                 >
                   <Ionicons name="add-circle-outline" size={15} color={t.text} />
-                  <AppText variant="label" style={{ fontFamily: 'Inter_600SemiBold' }}>
+                  <AppText variant="label" style={{ fontFamily: 'DMSans_600SemiBold' }}>
                     Ekrana Ekle
                   </AppText>
                 </View>
@@ -633,7 +633,7 @@ export default function SettingsScreen() {
               onPress={() => router.push('/onboarding')}
               style={[styles.resetPill, { backgroundColor: t.accentSoft }]}
             >
-              <AppText variant="label" tone="accent" style={{ fontFamily: 'Inter_600SemiBold' }}>
+              <AppText variant="label" tone="accent" style={{ fontFamily: 'DMSans_600SemiBold' }}>
                 Değiştir
               </AppText>
             </PressableScale>
@@ -648,7 +648,7 @@ export default function SettingsScreen() {
               onPress={() => router.push('/onboarding')}
               style={[styles.resetPill, { backgroundColor: t.accentSoft }]}
             >
-              <AppText variant="label" tone="accent" style={{ fontFamily: 'Inter_600SemiBold' }}>
+              <AppText variant="label" tone="accent" style={{ fontFamily: 'DMSans_600SemiBold' }}>
                 Başlat
               </AppText>
             </PressableScale>
@@ -669,7 +669,7 @@ export default function SettingsScreen() {
               }}
               style={[styles.resetPill, { backgroundColor: t.accentSoft }]}
             >
-              <AppText variant="label" tone="accent" style={{ fontFamily: 'Inter_600SemiBold' }}>
+              <AppText variant="label" tone="accent" style={{ fontFamily: 'DMSans_600SemiBold' }}>
                 Yenile
               </AppText>
             </PressableScale>
@@ -744,7 +744,7 @@ const styles = StyleSheet.create({
     gap: 8,
     paddingVertical: 16,
     borderRadius: radius.pill,
-    shadowColor: '#8B5CF6',
+    shadowColor: '#FF8A6B',
     shadowOpacity: 0.35,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 6 },
@@ -778,7 +778,7 @@ const styles = StyleSheet.create({
   },
   themeName: {
     fontSize: 16,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
   themeDesc: {
     fontSize: 12.5,

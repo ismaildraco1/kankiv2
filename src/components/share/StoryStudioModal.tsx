@@ -267,7 +267,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
             </AppText>
             <AppText
               variant="label"
-              style={{ color: '#FFFFFF', fontFamily: 'Inter_700Bold' }}
+              style={{ color: '#FFFFFF', fontFamily: 'DMSans_700Bold' }}
             >
               Tasarımı Özelleştir
             </AppText>
@@ -294,7 +294,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                     variant="label"
                     style={{
                       color: activeTabTextColor,
-                      fontFamily: 'Inter_700Bold',
+                      fontFamily: 'DMSans_700Bold',
                       fontSize: 13,
                     }}
                   >
@@ -429,7 +429,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                     style={styles.galleryPickBtn}
                   >
                     <LinearGradient
-                      colors={['#3B82F6', '#8B5CF6']}
+                      colors={['#3B82F6', '#FF8A6B']}
                       style={styles.galleryIconCircle}
                     >
                       <Ionicons name="images" size={17} color="#FFFFFF" />
@@ -502,8 +502,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                             color: isSelected ? t.accent : '#E2E8F0',
                             fontSize: 10.5,
                             fontFamily: isSelected
-                              ? 'Inter_700Bold'
-                              : 'Inter_500Medium',
+                              ? 'DMSans_700Bold'
+                              : 'DMSans_500Medium',
                           }}
                         >
                           {preset.title}
@@ -554,8 +554,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                                 : 'rgba(255,255,255,0.75)',
                               fontSize: 11.5,
                               fontFamily: active
-                                ? 'Inter_700Bold'
-                                : 'Inter_500Medium',
+                                ? 'DMSans_700Bold'
+                                : 'DMSans_500Medium',
                             }}
                           >
                             {labels[i]}
@@ -609,7 +609,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                         variant="label"
                         style={{
                           color: active ? t.accent : '#FFFFFF',
-                          fontFamily: 'Inter_700Bold',
+                          fontFamily: 'DMSans_700Bold',
                           fontSize: 13,
                         }}
                       >
@@ -674,8 +674,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                                 : 'rgba(255,255,255,0.75)',
                               fontSize: 11.5,
                               fontFamily: active
-                                ? 'Inter_700Bold'
-                                : 'Inter_500Medium',
+                                ? 'DMSans_700Bold'
+                                : 'DMSans_500Medium',
                             }}
                           >
                             {labels[i]}
@@ -733,8 +733,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                                 : 'rgba(255,255,255,0.75)',
                               fontSize: 11.5,
                               fontFamily: active
-                                ? 'Inter_700Bold'
-                                : 'Inter_500Medium',
+                                ? 'DMSans_700Bold'
+                                : 'DMSans_500Medium',
                             }}
                           >
                             {labels[widthPct]}
@@ -795,8 +795,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                           style={{
                             color: active ? t.accent : '#FFFFFF',
                             fontFamily: active
-                              ? 'Inter_700Bold'
-                              : 'Inter_500Medium',
+                              ? 'DMSans_700Bold'
+                              : 'DMSans_500Medium',
                             fontSize: 12.5,
                           }}
                         >
@@ -816,7 +816,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                       variant="label"
                       style={{
                         color: '#FFFFFF',
-                        fontFamily: 'Inter_600SemiBold',
+                        fontFamily: 'DMSans_600SemiBold',
                         fontSize: 12,
                       }}
                     >
@@ -865,8 +865,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                           style={{
                             color: active ? t.accent : '#FFFFFF',
                             fontFamily: active
-                              ? 'Inter_700Bold'
-                              : 'Inter_500Medium',
+                              ? 'DMSans_700Bold'
+                              : 'DMSans_500Medium',
                             fontSize: 12.5,
                           }}
                         >
@@ -926,7 +926,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                           ? activeTabTextColor
                           : 'rgba(255,255,255,0.75)',
                         fontSize: 12,
-                        fontFamily: 'Inter_600SemiBold',
+                        fontFamily: 'DMSans_600SemiBold',
                       }}
                     >
                       {(customization.enableTextShadow ?? true)
@@ -991,7 +991,7 @@ function TabItem({
         variant="label"
         style={{
           color: active ? activeTextColor : 'rgba(255,255,255,0.85)',
-          fontFamily: active ? 'Inter_700Bold' : 'Inter_600SemiBold',
+          fontFamily: active ? 'DMSans_700Bold' : 'DMSans_600SemiBold',
           fontSize: 12,
         }}
       >
@@ -1116,7 +1116,7 @@ const styles = StyleSheet.create({
   galleryBtnText: {
     color: '#FFFFFF',
     fontSize: 12,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   galleryIconCircle: {
     width: 34,
@@ -1157,7 +1157,7 @@ const styles = StyleSheet.create({
   controlLabelText: {
     color: 'rgba(255,255,255,0.75)',
     fontSize: 12,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'DMSans_500Medium',
   },
   chipRow: {
     flexDirection: 'row',

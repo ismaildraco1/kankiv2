@@ -421,7 +421,7 @@ const styles = StyleSheet.create({
   },
   skipText: {
     fontSize: 13,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   scrollContent: {
     flexGrow: 1,
@@ -461,6 +461,6 @@ const styles = StyleSheet.create({
   },
   btnText: {
     fontSize: 16,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
 });

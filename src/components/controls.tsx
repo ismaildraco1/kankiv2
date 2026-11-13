@@ -38,7 +38,7 @@ export function SettingRow({
         <Ionicons name={icon} size={18} color={t.accent} />
       </View>
       <View style={{ flex: 1 }}>
-        <AppText variant="body" style={{ fontFamily: 'Inter_600SemiBold', fontSize: 15 }}>
+        <AppText variant="body" style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 15 }}>
           {title}
         </AppText>
         {subtitle && (
@@ -121,7 +121,7 @@ export function SegmentedControl<T extends string>({
             <AppText
               variant="label"
               style={{
-                fontFamily: active ? 'Inter_700Bold' : 'Inter_500Medium',
+                fontFamily: active ? 'DMSans_700Bold' : 'DMSans_500Medium',
                 color: active ? t.text : t.textMuted,
               }}
             >
@@ -271,7 +271,7 @@ export function TimePickerField({
                     variant="label"
                     style={{
                       color: t.scheme === 'dark' ? '#1C1830' : '#FFFFFF',
-                      fontFamily: 'Inter_700Bold',
+                      fontFamily: 'DMSans_700Bold',
                     }}
                   >
                     Tamam
@@ -328,7 +328,7 @@ export function DayPicker({
             <AppText
               variant="label"
               style={{
-                fontFamily: 'Inter_700Bold',
+                fontFamily: 'DMSans_700Bold',
                 fontSize: 11,
                 color: active ? '#FFFFFF' : t.textMuted,
               }}
@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     lineHeight: 32,
     marginTop: 4,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
   backdrop: {
     flex: 1,

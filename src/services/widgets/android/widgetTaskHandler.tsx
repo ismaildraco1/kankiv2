@@ -24,7 +24,7 @@ export async function androidWidgetTaskHandler(props: WidgetTaskHandlerProps) {
         text: 'Her yeni gün, taze bir başlangıçtır.',
         author: 'Kanki',
         category: 'GÜNÜN SÖZÜ',
-        accent: '#A78BFA',
+        accent: '#FF8A6B',
         url: 'kanki://',
       };
 

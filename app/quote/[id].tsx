@@ -172,7 +172,7 @@ export default function QuoteDetail() {
                 numberOfLines={1}
                 style={{
                   color: isFav ? '#FB7185' : t.text,
-                  fontFamily: 'Inter_700Bold',
+                  fontFamily: 'DMSans_700Bold',
                   fontSize: 13.5,
                 }}
               >
@@ -198,7 +198,7 @@ export default function QuoteDetail() {
                 numberOfLines={1}
                 style={{
                   color: '#FFFFFF',
-                  fontFamily: 'Inter_700Bold',
+                  fontFamily: 'DMSans_700Bold',
                   fontSize: 13.5,
                 }}
               >
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   },
   authorName: {
     fontSize: 15,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   actions: {
     flexDirection: 'row',
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
     height: 52,
     paddingHorizontal: 14,
     borderRadius: radius.pill,
-    shadowColor: '#8B5CF6',
+    shadowColor: '#FF8A6B',
     shadowOpacity: 0.45,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 6 },

@@ -46,7 +46,7 @@ export function DiscoverSection({ pool, excludeId }: { pool: Quote[]; excludeId?
           style={[styles.shuffle, { backgroundColor: t.accentSoft }]}
         >
           <Ionicons name="shuffle" size={14} color={t.accent} />
-          <AppText variant="label" tone="accent" style={{ fontSize: 12.5, fontFamily: 'Inter_600SemiBold' }}>
+          <AppText variant="label" tone="accent" style={{ fontSize: 12.5, fontFamily: 'DMSans_600SemiBold' }}>
             Karıştır
           </AppText>
         </PressableScale>
@@ -131,12 +131,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: radius.pill,
-    shadowColor: '#8B5CF6',
+    shadowColor: '#FF8A6B',
     shadowOpacity: 0.3,
     shadowRadius: 8,
     shadowOffset: { width: 0, height: 2 },
   },
-  chipActiveText: { color: '#FFFFFF', fontFamily: 'Inter_700Bold', fontSize: 13 },
+  chipActiveText: { color: '#FFFFFF', fontFamily: 'DMSans_700Bold', fontSize: 13 },
   chipInactive: {
     paddingHorizontal: 14,
     paddingVertical: 7.5,

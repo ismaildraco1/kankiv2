@@ -145,7 +145,7 @@ export function StepCategories({
                         styles.categoryTitle,
                         {
                           color: isSelected ? t.text : t.textMuted,
-                          fontFamily: isSelected ? 'Inter_700Bold' : 'Inter_500Medium',
+                          fontFamily: isSelected ? 'DMSans_700Bold' : 'DMSans_500Medium',
                         },
                       ]}
                     >
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   stepOverline: {
     letterSpacing: 2,
     fontSize: 10.5,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
     marginBottom: 6,
   },
   title: {
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
   },
   countText: {
     fontSize: 12,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   selectAllPill: {
     flexDirection: 'row',

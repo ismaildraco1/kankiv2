@@ -33,7 +33,7 @@ export async function configureNotifications() {
         description: 'Seçtiğin setlerden rastgele sözler',
         importance: Notifications.AndroidImportance.DEFAULT,
         vibrationPattern: [0, 120, 80, 120],
-        lightColor: '#C4B5FD',
+        lightColor: '#FFB59E',
         lockscreenVisibility: Notifications.AndroidNotificationVisibility.PUBLIC,
       });
     }

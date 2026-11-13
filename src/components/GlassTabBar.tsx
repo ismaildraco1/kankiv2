@@ -154,14 +154,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     height: 44,
     borderRadius: radius.pill,
-    shadowColor: '#8B5CF6',
+    shadowColor: '#FF8A6B',
     shadowOpacity: 0.45,
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 4 },
   },
   activeText: {
     color: '#FFFFFF',
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
     fontSize: 13,
   },
   inactiveItem: {

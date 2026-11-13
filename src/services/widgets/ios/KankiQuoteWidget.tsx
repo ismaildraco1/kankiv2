@@ -291,7 +291,7 @@ const KankiQuoteWidget = (
                 ),
               ]}
             >
-              <Image systemName="arrow.triangle.2.circlepath" size={9} color="#A78BFA" />
+              <Image systemName="arrow.triangle.2.circlepath" size={9} color="#FF8A6B" />
             </HStack>
           </HStack>
         </VStack>

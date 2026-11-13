@@ -4,7 +4,7 @@
     "slug": "kankiv2",
     "version": "1.1.0",
     "description": "Günün ilham veren sözleri, motivasyon bildirimleri ve estetik kilit ekranı widget'ı.",
-    "primaryColor": "#8B5CF6",
+    "primaryColor": "#FF8A6B",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "kanki",
@@ -60,7 +60,7 @@
         "expo-notifications",
         {
           "icon": "./assets/icon.png",
-          "color": "#C4B5FD"
+          "color": "#FFB59E"
         }
       ],
       [

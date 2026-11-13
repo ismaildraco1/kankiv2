@@ -89,25 +89,25 @@ export const TYPOGRAPHY_OPTIONS: {
   {
     id: 'serifItalic',
     title: 'Edebi',
-    font: 'PlayfairDisplay_400Regular_Italic',
+    font: 'Fraunces_400Regular_Italic',
     sample: 'Şiirsel & Zarif',
   },
   {
     id: 'serifBold',
     title: 'Klasik',
-    font: 'PlayfairDisplay_600SemiBold',
+    font: 'Fraunces_600SemiBold',
     sample: 'Heybetli Serif',
   },
   {
     id: 'sansBold',
     title: 'Modern',
-    font: 'Inter_700Bold',
+    font: 'DMSans_700Bold',
     sample: 'Cesur & Güçlü',
   },
   {
     id: 'sansRegular',
     title: 'Minimal',
-    font: 'Inter_500Medium',
+    font: 'DMSans_500Medium',
     sample: 'Duru & Sade',
   },
 ];

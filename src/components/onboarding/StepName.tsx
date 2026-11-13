@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   brandOverline: {
     letterSpacing: 2.4,
     fontSize: 11,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
   textSection: {
     alignItems: 'center',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 26,
     textAlign: 'center',
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
     marginBottom: 8,
   },
   descriptionText: {
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 18,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
     paddingVertical: Platform.OS === 'ios' ? 8 : 4,
     borderBottomWidth: 1.5,
   },

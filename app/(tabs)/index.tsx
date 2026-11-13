@@ -73,5 +73,5 @@ function EmptyCategoriesCard() {
 
 const styles = StyleSheet.create({
   empty: { gap: 10, paddingVertical: 8 },
-  emptyLink: { fontFamily: 'Inter_600SemiBold', marginTop: 4 },
+  emptyLink: { fontFamily: 'DMSans_600SemiBold', marginTop: 4 },
 });

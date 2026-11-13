@@ -177,7 +177,7 @@ export function StepNotifications({ mode, onSelectMode }: StepNotificationsProps
                         variant="label"
                         style={{
                           fontSize: 11,
-                          fontFamily: 'Inter_600SemiBold',
+                          fontFamily: 'DMSans_600SemiBold',
                           color: isSelected ? t.text : t.textMuted,
                         }}
                       >
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
   stepOverline: {
     letterSpacing: 2,
     fontSize: 10.5,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
     marginBottom: 6,
   },
   title: {
@@ -266,11 +266,11 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 17,
     lineHeight: 22,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
   },
   badgeText: {
     fontSize: 11,
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'DMSans_600SemiBold',
     marginTop: 1,
   },
   radioCircle: {
@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     fontSize: 13.5,
     lineHeight: 19,
     marginBottom: 4,
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'DMSans_500Medium',
   },
   subdetail: {
     fontSize: 12,

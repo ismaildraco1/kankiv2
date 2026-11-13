@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     lineHeight: 24,
     marginBottom: 4,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
   subtitle: {
     fontSize: 12.5,

@@ -101,7 +101,7 @@ export function QuoteCard({ quote, size = 'compact', meta }: Props) {
                   <Ionicons name="sparkles" size={11} color={t.gold} />
                   <AppText
                     variant="overline"
-                    style={{ color: t.gold, fontSize: 9.5, letterSpacing: 1.2, fontFamily: 'Inter_700Bold' }}
+                    style={{ color: t.gold, fontSize: 9.5, letterSpacing: 1.2, fontFamily: 'DMSans_700Bold' }}
                   >
                     GÜNÜN İLHAMI
                   </AppText>
@@ -139,7 +139,7 @@ export function QuoteCard({ quote, size = 'compact', meta }: Props) {
               variant="label"
               style={[
                 styles.authorText,
-                hero && { fontSize: 14, fontFamily: 'Inter_600SemiBold' },
+                hero && { fontSize: 14, fontFamily: 'DMSans_600SemiBold' },
               ]}
             >
               {quote.author}
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
     borderRadius: 1,
   },
   authorText: {
-    fontFamily: 'Inter_500Medium',
+    fontFamily: 'DMSans_500Medium',
     letterSpacing: 0.1,
   },
   actions: {

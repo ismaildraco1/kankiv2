@@ -53,7 +53,7 @@ export default function FavoritesScreen() {
               <AppText
                 variant="label"
                 tone="accent"
-                style={{ fontFamily: 'Inter_600SemiBold', fontSize: 13 }}
+                style={{ fontFamily: 'DMSans_600SemiBold', fontSize: 13 }}
               >
                 Günün Sözünü Keşfet →
               </AppText>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   emptyTitle: {
     textAlign: 'center',
     fontSize: 20,
-    fontFamily: 'Inter_700Bold',
+    fontFamily: 'DMSans_700Bold',
   },
   emptyBody: {
     textAlign: 'center',

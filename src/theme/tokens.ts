@@ -2,12 +2,12 @@ import type { TextStyle } from 'react-native';
 
 /** useFonts ile yüklenen font ailelerinin adları (app/_layout.tsx) */
 export const fonts = {
-  serifItalic: 'PlayfairDisplay_400Regular_Italic',
-  serifBold: 'PlayfairDisplay_600SemiBold',
-  regular: 'Inter_400Regular',
-  medium: 'Inter_500Medium',
-  semibold: 'Inter_600SemiBold',
-  bold: 'Inter_700Bold',
+  serifItalic: 'Fraunces_400Regular_Italic',
+  serifBold: 'Fraunces_600SemiBold',
+  regular: 'DMSans_400Regular',
+  medium: 'DMSans_500Medium',
+  semibold: 'DMSans_600SemiBold',
+  bold: 'DMSans_700Bold',
 } as const;
 
 export const type = {

@@ -57,7 +57,7 @@ export default function CategoriesScreen() {
           <AppText
             variant="label"
             tone="accent"
-            style={{ fontSize: 12.5, fontFamily: 'Inter_600SemiBold' }}
+            style={{ fontSize: 12.5, fontFamily: 'DMSans_600SemiBold' }}
           >
             {allActive ? 'Daralt' : 'Tümünü Seç'}
           </AppText>
