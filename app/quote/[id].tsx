@@ -109,25 +109,16 @@ export default function QuoteDetail() {
               “
             </Text>
 
-            {/* Kategori Rozeti */}
-            <View style={styles.chipRow}>
-              <LinearGradient colors={category.gradient} style={styles.iconGradient}>
-                <Ionicons name={category.icon} size={16} color="#FFFFFF" />
-              </LinearGradient>
-              <AppText
-                variant="overline"
-                style={{ color: category.gradient[0], letterSpacing: 1.6, fontFamily: 'Inter_700Bold' }}
-              >
-                {category.title.toUpperCase()}
-              </AppText>
-            </View>
-
             {/* Büyük Söz Metni */}
             <AppText
               variant="quote"
               style={[
                 styles.quoteText,
-                quote.text.length > 100 && { fontSize: 24, lineHeight: 36 },
+                quote.text.length > 140
+                  ? { fontSize: 22, lineHeight: 33 }
+                  : quote.text.length > 95
+                  ? { fontSize: 24, lineHeight: 36 }
+                  : undefined,
               ]}
             >
               “{quote.text}”

@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { forwardRef } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Animated, Image, StyleSheet, Text, View } from 'react-native';
 
 import { getCategory } from '@/data/categories';
 import { fonts } from '@/theme/tokens';
@@ -13,10 +13,13 @@ export const SHARE_HEIGHT = 640;
 interface Props {
   quote: Quote;
   customization?: StoryCustomization;
+  animatedOffset?: Animated.ValueXY;
+  /** Ölçek çarpanı (Önizleme için 1 = 360x640, Ultra HD dışa aktarım için 3 = 1080x1920) */
+  scale?: number;
 }
 
-export const ShareCard = forwardRef<View, Props>(function ShareCard(
-  { quote, customization = DEFAULT_STORY_CUSTOMIZATION },
+export const ShareCard = forwardRef<any, Props>(function ShareCard(
+  { quote, customization = DEFAULT_STORY_CUSTOMIZATION, animatedOffset, scale = 1 },
   ref,
 ) {
   const category = getCategory(quote.categoryId);
@@ -28,13 +31,6 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
     ? '#FFFFFF'
     : preset.textColor;
 
-  // Konumlandırma stili (temel hizalama)
-  const positionStyle = {
-    top: styles.positionTop,
-    center: styles.positionCenter,
-    bottom: styles.positionBottom,
-  }[customization.position];
-
   // Yazı tipi stili
   const fontStyle = {
     serifItalic: {
@@ -43,15 +39,15 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
     },
     serifBold: {
       fontFamily: fonts.serifBold,
-      letterSpacing: -0.4,
+      letterSpacing: -0.4 * scale,
     },
     sansBold: {
       fontFamily: fonts.bold,
-      letterSpacing: -0.3,
+      letterSpacing: -0.3 * scale,
     },
     sansRegular: {
       fontFamily: fonts.medium,
-      letterSpacing: 0.1,
+      letterSpacing: 0.1 * scale,
     },
   }[customization.typography];
 
@@ -60,27 +56,60 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
   const isSolid = customization.cardStyle === 'solid';
 
   // Dinamik metin boyutu ve satır aralığı
-  const baseFontSize = long ? 21 : 25;
-  const effectiveFontSize = Math.max(
-    15,
-    Math.min(36, baseFontSize + (customization.fontSizeDelta ?? 0)),
+  const baseFontSize = (long ? 21 : 25) * scale;
+  const effectiveFontSize = Math.round(
+    Math.max(
+      15 * scale,
+      Math.min(36 * scale, ((long ? 21 : 25) + (customization.fontSizeDelta ?? 0)) * scale),
+    ),
   );
   const effectiveLineHeight = Math.round(effectiveFontSize * 1.46);
 
   // Kart genişliği hesabı
   const cardWidthPercent = customization.cardWidthPercent ?? 100;
-  const cardWidth = ((SHARE_WIDTH - 44) * cardWidthPercent) / 100;
+  const cardWidth = (((SHARE_WIDTH - 44) * cardWidthPercent) / 100) * scale;
 
-  // Serbest sürükleme ofseti
+  // Serbest sürükleme ofseti (merkez referanslı)
   const offsetX = customization.offsetX ?? 0;
   const offsetY = customization.offsetY ?? 0;
 
   // Metin okunabilirlik gölgesi
   const showTextShadow = customization.enableTextShadow ?? true;
-  const textShadowStyle = showTextShadow ? styles.crispTextShadow : undefined;
+  const textShadowStyle = showTextShadow
+    ? {
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowRadius: 10 * scale,
+        textShadowOffset: { width: 0, height: 2 * scale },
+      }
+    : undefined;
+
+  const cardTransform = animatedOffset
+    ? [
+        { translateX: animatedOffset.x },
+        { translateY: animatedOffset.y },
+      ]
+    : [
+        { translateX: offsetX * scale },
+        { translateY: offsetY * scale },
+      ];
+
+  const canvasWidth = SHARE_WIDTH * scale;
+  const canvasHeight = SHARE_HEIGHT * scale;
+  const canvasPadding = 22 * scale;
 
   return (
-    <View ref={ref} collapsable={false} style={[styles.canvas, positionStyle]}>
+    <View
+      ref={ref}
+      collapsable={false}
+      style={[
+        styles.canvas,
+        {
+          width: canvasWidth,
+          height: canvasHeight,
+          padding: canvasPadding,
+        },
+      ]}
+    >
       {/* ── 1. Arka Plan Katmanı ── */}
       {customization.customImageUri ? (
         <Image
@@ -101,10 +130,10 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
             style={[
               styles.orb,
               {
-                top: 50,
-                left: -70,
-                width: 300,
-                height: 300,
+                top: 50 * scale,
+                left: -70 * scale,
+                width: 300 * scale,
+                height: 300 * scale,
                 backgroundColor: preset.orbs[0],
               },
             ]}
@@ -113,10 +142,10 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
             style={[
               styles.orb,
               {
-                bottom: 80,
-                right: -60,
-                width: 280,
-                height: 280,
+                bottom: 80 * scale,
+                right: -60 * scale,
+                width: 280 * scale,
+                height: 280 * scale,
                 backgroundColor: preset.orbs[1],
               },
             ]}
@@ -124,7 +153,7 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
         </>
       )}
 
-      {/* Karartma Örtüsü (Fotoğraf veya degrade üzerinde okunabilirlik sağlar) */}
+      {/* Karartma Örtüsü */}
       {customization.overlayDarkness > 0 && (
         <View
           style={[
@@ -135,43 +164,54 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
       )}
 
       {/* ── 2. Söz Kartı / Metin Alanı (Sürüklenebilir) ── */}
-      <View
+      <Animated.View
         style={[
           styles.cardBase,
           {
             width: cardWidth,
+            padding: 22 * scale,
             alignSelf: 'center',
-            transform: [{ translateX: offsetX }, { translateY: offsetY }],
+            transform: cardTransform,
           },
-          !isMinimal && (isSolid ? styles.solidCard : styles.glassCard),
-          isLight && styles.lightGlassCard,
+          !isMinimal &&
+            (isSolid
+              ? [
+                  styles.solidCard,
+                  {
+                    borderRadius: 26 * scale,
+                    borderWidth: 1.2 * scale,
+                    shadowRadius: 30 * scale,
+                    shadowOffset: { width: 0, height: 14 * scale },
+                  },
+                ]
+              : [
+                  styles.glassCard,
+                  {
+                    borderRadius: 26 * scale,
+                    borderWidth: 1.5 * scale,
+                    shadowRadius: 28 * scale,
+                    shadowOffset: { width: 0, height: 14 * scale },
+                  },
+                ]),
+          isLight && [
+            styles.lightGlassCard,
+            {
+              borderWidth: 1.5 * scale,
+            },
+          ],
         ]}
       >
-        {/* Kategori Rozeti */}
-        <View
-          style={[
-            styles.badgeRow,
-            isLight
-              ? { backgroundColor: 'rgba(0,0,0,0.06)' }
-              : { backgroundColor: 'rgba(255,255,255,0.12)' },
-          ]}
-        >
-          <LinearGradient colors={category.gradient} style={styles.badgeDot} />
-          <Text
-            style={[
-              styles.overline,
-              { color: isLight ? '#1A1524' : '#FFFFFF' },
-            ]}
-          >
-            {category.title.toUpperCase()}
-          </Text>
-        </View>
-
         {/* Tırnak İşareti */}
         <Text
           style={[
             styles.mark,
-            { color: isLight ? 'rgba(26,21,36,0.2)' : 'rgba(255,255,255,0.35)' },
+            {
+              fontSize: 72 * scale,
+              lineHeight: 72 * scale,
+              marginTop: 4 * scale,
+              marginBottom: -26 * scale,
+              color: isLight ? 'rgba(26,21,36,0.2)' : 'rgba(255,255,255,0.35)',
+            },
             textShadowStyle,
           ]}
         >
@@ -195,35 +235,55 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
         </Text>
 
         {/* Ayraç & Yazar */}
-        <View style={styles.authorSection}>
+        <View style={[styles.authorSection, { marginTop: 20 * scale, gap: 10 * scale }]}>
           <LinearGradient
             colors={category.gradient}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            style={styles.divider}
+            style={{
+              width: 38 * scale,
+              height: 2.5 * scale,
+              borderRadius: 1.5 * scale,
+            }}
           />
           <Text
             style={[
               styles.author,
-              { color: textColor, opacity: isLight ? 0.85 : 0.9 },
+              {
+                fontSize: 14.5 * scale,
+                letterSpacing: 0.2 * scale,
+                color: textColor,
+                opacity: isLight ? 0.85 : 0.9,
+              },
               textShadowStyle,
             ]}
           >
             — {quote.author}
           </Text>
         </View>
-      </View>
+      </Animated.View>
 
       {/* ── 3. Alt Marka İmzası ── */}
-      <View style={styles.brandRow} pointerEvents="none">
+      <View
+        style={{
+          position: 'absolute',
+          bottom: 22 * scale,
+          alignSelf: 'center',
+        }}
+        pointerEvents="none"
+      >
         <Text
           style={[
             styles.brand,
-            { color: isLight ? 'rgba(26,21,36,0.5)' : 'rgba(255,255,255,0.7)' },
+            {
+              fontSize: 10.5 * scale,
+              letterSpacing: 2.4 * scale,
+              color: isLight ? 'rgba(26,21,36,0.5)' : 'rgba(255,255,255,0.7)',
+            },
             textShadowStyle,
           ]}
         >
-          ✦ FISILTI · GÜNÜN İLHAMI
+          ✦ KANKI · GÜNÜN İLHAMI
         </Text>
       </View>
     </View>
@@ -232,49 +292,26 @@ export const ShareCard = forwardRef<View, Props>(function ShareCard(
 
 const styles = StyleSheet.create({
   canvas: {
-    width: SHARE_WIDTH,
-    height: SHARE_HEIGHT,
-    padding: 22,
-    overflow: 'hidden',
-  },
-  positionCenter: {
     justifyContent: 'center',
-  },
-  positionTop: {
-    justifyContent: 'flex-start',
-    paddingTop: 54,
-  },
-  positionBottom: {
-    justifyContent: 'flex-end',
-    paddingBottom: 72,
+    overflow: 'hidden',
   },
   orb: {
     position: 'absolute',
     borderRadius: 999,
     opacity: 0.55,
   },
-  cardBase: {
-    padding: 22,
-  },
+  cardBase: {},
   glassCard: {
-    borderRadius: 26,
     backgroundColor: 'rgba(255, 255, 255, 0.10)',
-    borderWidth: 1.5,
     borderColor: 'rgba(255, 255, 255, 0.25)',
     shadowColor: '#000',
     shadowOpacity: 0.45,
-    shadowRadius: 28,
-    shadowOffset: { width: 0, height: 14 },
   },
   solidCard: {
-    borderRadius: 26,
     backgroundColor: 'rgba(12, 10, 22, 0.90)',
-    borderWidth: 1.2,
     borderColor: 'rgba(255, 255, 255, 0.16)',
     shadowColor: '#000',
     shadowOpacity: 0.5,
-    shadowRadius: 30,
-    shadowOffset: { width: 0, height: 14 },
   },
   lightGlassCard: {
     backgroundColor: 'rgba(255, 255, 255, 0.75)',
@@ -282,64 +319,15 @@ const styles = StyleSheet.create({
     shadowColor: '#4C3077',
     shadowOpacity: 0.16,
   },
-  crispTextShadow: {
-    textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowRadius: 10,
-    textShadowOffset: { width: 0, height: 2 },
-  },
-  badgeRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 7,
-    alignSelf: 'flex-start',
-    paddingHorizontal: 11,
-    paddingVertical: 4.5,
-    borderRadius: 999,
-    marginBottom: 8,
-  },
-  badgeDot: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-  },
-  overline: {
-    fontFamily: fonts.semibold,
-    fontSize: 9.5,
-    letterSpacing: 1.8,
-  },
   mark: {
     fontFamily: fonts.serifBold,
-    fontSize: 72,
-    lineHeight: 72,
-    marginTop: 4,
-    marginBottom: -26,
   },
-  quote: {
-    fontSize: 25,
-    lineHeight: 37,
-  },
-  authorSection: {
-    marginTop: 20,
-    gap: 10,
-  },
-  divider: {
-    width: 38,
-    height: 2.5,
-    borderRadius: 1.5,
-  },
+  quote: {},
+  authorSection: {},
   author: {
     fontFamily: fonts.medium,
-    fontSize: 14.5,
-    letterSpacing: 0.2,
-  },
-  brandRow: {
-    position: 'absolute',
-    bottom: 22,
-    alignSelf: 'center',
   },
   brand: {
     fontFamily: fonts.semibold,
-    fontSize: 10.5,
-    letterSpacing: 2.4,
   },
 });

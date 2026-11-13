@@ -39,7 +39,7 @@ interface OnboardingWizardProps {
 }
 
 /**
- * Fısıltı - Karşılama Sihirbazı (Onboarding Wizard)
+ * Kanki - Karşılama Sihirbazı (Onboarding Wizard)
  * 1. Adım: İsim / Hitap
  * 2. Adım: Tema Seçimi (Canlı Önizleme)
  * 3. Adım: Kategori Seçimi (Çoklu Seçim Pill Butonlar)
@@ -353,7 +353,7 @@ export function OnboardingWizard({ onComplete }: OnboardingWizardProps) {
                     ]}
                   >
                     {currentStep === TOTAL_STEPS - 1
-                      ? "Fısıltı'ya Başla ✨"
+                      ? "Kanki'ye Başla ✨"
                       : 'Devam Et'}
                   </AppText>
                   <Ionicons

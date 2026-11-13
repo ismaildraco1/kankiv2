@@ -17,6 +17,7 @@ import { useAutoReschedule } from '@/hooks/useAutoReschedule';
 import { useNotificationObserver } from '@/hooks/useNotificationObserver';
 import { registerBackgroundRefill } from '@/services/notifications/backgroundTask';
 import { configureNotifications, requestPermission } from '@/services/notifications/setup';
+import { initMobileAds } from '@/services/ads/adService';
 import { registerAndroidWidgetTask } from '@/services/widgets/android/widgetTaskHandler';
 import { syncWidgets } from '@/services/widgets/syncWidgets';
 import { useAppStore } from '@/store/useAppStore';
@@ -51,6 +52,7 @@ export default function RootLayout() {
       await requestPermission();
       await registerBackgroundRefill();
       await syncWidgets();
+      await initMobileAds();
     })().catch(console.warn);
   }, [ready]);
 

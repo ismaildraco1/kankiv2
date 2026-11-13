@@ -21,6 +21,7 @@ import { captureRef } from 'react-native-view-shot';
 
 import { AppText } from '@/components/AppText';
 import { PressableScale } from '@/components/PressableScale';
+import { showInterstitial } from '@/services/ads/adService';
 import { useTheme } from '@/theme/ThemeProvider';
 import { radius } from '@/theme/tokens';
 import type {
@@ -60,7 +61,7 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
   const [isDragging, setIsDragging] = useState(false);
 
   // Görünmeyen tam çözünürlüklü referans (1080x1920 yakalama için)
-  const captureCardRef = useRef<View>(null);
+  const captureCardRef = useRef<any>(null);
 
   // Canlı önizleme ölçeklendirmesi (360x640 kartı cihaz ekranına orantılar)
   const maxPreviewHeight = winHeight * 0.40;
@@ -85,64 +86,78 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
   });
 
   useEffect(() => {
-    pan.setValue({
-      x: customization.offsetX ?? 0,
-      y: customization.offsetY ?? 0,
-    });
-    currentOffset.current = {
-      x: customization.offsetX ?? 0,
-      y: customization.offsetY ?? 0,
-    };
-  }, [customization.offsetX, customization.offsetY, pan]);
+    if (!isDragging) {
+      const x = customization.offsetX ?? 0;
+      const y = customization.offsetY ?? 0;
+      pan.setValue({ x, y });
+      currentOffset.current = { x, y };
+    }
+  }, [customization.offsetX, customization.offsetY, isDragging, pan]);
+
+  // Sürükleme sınırları (canvas sınırları içinde kalması için)
+  const BOUND_X = 130;
+  const BOUND_Y = 210;
 
   const panResponder = useMemo(
     () =>
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponder: (_, gestureState) =>
-          Math.abs(gestureState.dx) > 3 || Math.abs(gestureState.dy) > 3,
+        onStartShouldSetPanResponderCapture: () => true,
+        onMoveShouldSetPanResponder: () => true,
+        onMoveShouldSetPanResponderCapture: () => true,
         onPanResponderGrant: () => {
           setIsDragging(true);
-          pan.setOffset({
-            x: currentOffset.current.x,
-            y: currentOffset.current.y,
-          });
-          pan.setValue({ x: 0, y: 0 });
           Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light).catch(() => {});
         },
         onPanResponderMove: (_, gestureState) => {
           const scaledDx = gestureState.dx / previewScale;
           const scaledDy = gestureState.dy / previewScale;
-          pan.setValue({ x: scaledDx, y: scaledDy });
+          const nextX = Math.max(
+            -BOUND_X,
+            Math.min(BOUND_X, currentOffset.current.x + scaledDx),
+          );
+          const nextY = Math.max(
+            -BOUND_Y,
+            Math.min(BOUND_Y, currentOffset.current.y + scaledDy),
+          );
+          pan.setValue({ x: nextX, y: nextY });
         },
         onPanResponderRelease: (_, gestureState) => {
           setIsDragging(false);
-          pan.flattenOffset();
+          const scaledDx = gestureState.dx / previewScale;
+          const scaledDy = gestureState.dy / previewScale;
           const finalX = Math.round(
             Math.max(
-              -130,
-              Math.min(
-                130,
-                currentOffset.current.x + gestureState.dx / previewScale,
-              ),
+              -BOUND_X,
+              Math.min(BOUND_X, currentOffset.current.x + scaledDx),
             ),
           );
           const finalY = Math.round(
             Math.max(
-              -230,
-              Math.min(
-                230,
-                currentOffset.current.y + gestureState.dy / previewScale,
-              ),
+              -BOUND_Y,
+              Math.min(BOUND_Y, currentOffset.current.y + scaledDy),
             ),
           );
           currentOffset.current = { x: finalX, y: finalY };
           pan.setValue({ x: finalX, y: finalY });
+
+          let inferredPos: StoryPosition = 'center';
+          if (finalY < -70) inferredPos = 'top';
+          else if (finalY > 70) inferredPos = 'bottom';
+
           setCustomization((prev) => ({
             ...prev,
+            position: inferredPos,
             offsetX: finalX,
             offsetY: finalY,
           }));
+        },
+        onPanResponderTerminate: () => {
+          setIsDragging(false);
+          pan.setValue({
+            x: currentOffset.current.x,
+            y: currentOffset.current.y,
+          });
         },
       }),
     [pan, previewScale],
@@ -153,9 +168,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['images'],
-        allowsEditing: true,
-        aspect: [9, 16],
-        quality: 0.9,
+        allowsEditing: false, // Sistem kırpıcısının görseli düşük çözünürlüğe sıkıştırmasını önle
+        quality: 1, // Tam %100 orijinal çözünürlük
       });
 
       if (!result.canceled && result.assets && result.assets.length > 0) {
@@ -179,14 +193,12 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).catch(() => {});
 
     try {
-      // Çerçevenin tam çizilmesi için 120ms bekle
-      await new Promise((r) => setTimeout(r, 120));
+      // 1080x1920 Ultra HD kartın ve görselin tam GPU render'ı için süre tanı
+      await new Promise((r) => setTimeout(r, 160));
 
       const uri = await captureRef(captureCardRef, {
         format: 'png',
         quality: 1,
-        width: 1080,
-        height: 1920,
         result: 'tmpfile',
       });
 
@@ -199,6 +211,8 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
       } else {
         await Share.share({ message: `“${quote?.text}” — ${quote?.author}` });
       }
+      // Paylaşım sonrası geçiş reklamı tetikle
+      showInterstitial();
     } catch (e) {
       console.warn('[share] capture failed', e);
       if (quote) {
@@ -336,7 +350,11 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                 ],
               }}
             >
-              <ShareCard quote={quote} customization={customization} />
+              <ShareCard
+                quote={quote}
+                customization={customization}
+                animatedOffset={pan}
+              />
             </View>
           </View>
         </View>
@@ -745,9 +763,9 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
                         onPress={() => {
                           const targetOffsetY =
                             pos.id === 'top'
-                              ? -130
+                              ? -140
                               : pos.id === 'bottom'
-                              ? 130
+                              ? 140
                               : 0;
                           pan.setValue({ x: 0, y: targetOffsetY });
                           currentOffset.current = { x: 0, y: targetOffsetY };
@@ -922,12 +940,13 @@ export function StoryStudioModal({ visible, quote, onClose }: Props) {
           </View>
         </View>
 
-        {/* ── 4. Ekran Dışı Tam Çözünürlüklü Yakalama Katmanı (1080x1920) ── */}
-        <View style={styles.offscreenCapture} pointerEvents="none">
+        {/* ── 4. Ekran Dışı Gerçek 1080x1920 Ultra HD Yakalama Katmanı ── */}
+        <View style={styles.offscreenCapture} pointerEvents="none" collapsable={false}>
           <ShareCard
             ref={captureCardRef}
             quote={quote}
             customization={customization}
+            scale={3}
           />
         </View>
       </View>
@@ -1188,9 +1207,11 @@ const styles = StyleSheet.create({
   },
   offscreenCapture: {
     position: 'absolute',
-    left: -SHARE_WIDTH * 4,
     top: 0,
-    width: SHARE_WIDTH,
-    height: SHARE_HEIGHT,
+    left: 0,
+    width: 1080,
+    height: 1920,
+    zIndex: -9999,
+    overflow: 'hidden',
   },
 });

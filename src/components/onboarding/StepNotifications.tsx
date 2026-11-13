@@ -70,7 +70,7 @@ export function StepNotifications({ mode, onSelectMode }: StepNotificationsProps
         </AppText>
 
         <AppText variant="body" tone="muted" style={styles.subtitle}>
-          Fısıltılar gününe nasıl eşlik etsin? Dilediğin an Ayarlar sekmesinden saatleri güncelleyebilirsin.
+          Kanki gününe nasıl eşlik etsin? Dilediğin an Ayarlar sekmesinden saatleri güncelleyebilirsin.
         </AppText>
       </View>
 
@@ -197,7 +197,7 @@ export function StepNotifications({ mode, onSelectMode }: StepNotificationsProps
         <View style={styles.permissionContent}>
           <Ionicons name="notifications-outline" size={18} color={t.accent} />
           <AppText variant="label" tone="muted" style={styles.permissionText}>
-            Bir sonraki adımda Fısıltı için bildirim izni isteyeceğiz. Asla spam yapmaz, yalnızca seçtiğin anlarda zihnini aydınlatırız.
+            Bir sonraki adımda Kanki için bildirim izni isteyeceğiz. Asla spam yapmaz, yalnızca seçtiğin anlarda zihnini aydınlatırız.
           </AppText>
         </View>
       </GlassCard>

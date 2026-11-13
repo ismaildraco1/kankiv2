@@ -19,7 +19,8 @@ export type CategoryId =
   | 'courage'
   | 'poverty'
   | 'poetry'
-  | 'turkish-cinema';
+  | 'turkish-cinema'
+  | 'latin';
 
 export interface Category {
   id: CategoryId;

@@ -3,7 +3,7 @@ import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { useMemo } from 'react';
-import { StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Image, StyleSheet, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { useTheme } from '@/theme/ThemeProvider';
 import { radius } from '@/theme/tokens';
@@ -53,8 +53,8 @@ interface AppHeaderProps {
 }
 
 /**
- * Fısıltı Üst Bilgi Paneli (Header / Navbar):
- * - Sol taraf: "Fısıltı" markası & kristal logo rozeti
+ * Kanki Üst Bilgi Paneli (Header / Navbar):
+ * - Sol taraf: "Kanki" markası & kristal logo rozeti
  * - Sağ taraf: Güncel anlık Türkçe tarih (örn: 12 Ekim Pazartesi) ve minimalist ayarlar simgesi
  */
 export function AppHeader({
@@ -78,17 +78,14 @@ export function AppHeader({
 
   return (
     <View style={[styles.container, style]}>
-      {/* ── Sol: "Fısıltı" Markası & Logo ── */}
+      {/* ── Sol: "Kanki" Markası & Logo ── */}
       <View style={styles.brandGroup}>
         <View style={styles.logoBadge}>
-          <LinearGradient
-            colors={t.accentGradient}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.logoGradient}
-          >
-            <Ionicons name="sparkles" size={15} color="#FFFFFF" />
-          </LinearGradient>
+          <Image
+            source={require('../../assets/logo.png')}
+            style={styles.logoImage}
+            resizeMode="cover"
+          />
         </View>
 
         <View style={styles.brandTextWrap}>
@@ -99,7 +96,7 @@ export function AppHeader({
               { color: t.text },
             ]}
           >
-            Fısıltı
+            Kanki
           </AppText>
         </View>
       </View>
@@ -174,12 +171,10 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 3 },
   },
-  logoGradient: {
-    width: 34,
-    height: 34,
-    borderRadius: 11,
-    alignItems: 'center',
-    justifyContent: 'center',
+  logoImage: {
+    width: 32,
+    height: 32,
+    borderRadius: 9,
   },
   brandTextWrap: {
     justifyContent: 'center',

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kanki — Gizlilik Politikası | Privacy Policy</title>
+  <meta name="description" content="Kanki (Günün Sözü & Motivasyon) mobil uygulaması gizlilik politikası ve kişisel verilerin korunması aydınlatma metni." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-base: #050711;
+      --bg-secondary: #0b1528;
+      --glass-bg: rgba(15, 23, 42, 0.68);
+      --glass-border: rgba(103, 232, 249, 0.20);
+      --glass-highlight: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent-cyan: #67e8f9;
+      --accent-blue: #38bdf8;
+      --accent-violet: #a78bfa;
+      --badge-bg: rgba(56, 189, 248, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-base);
+      background-image:
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 85% 25%, rgba(167, 139, 250, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(103, 232, 249, 0.10) 0%, transparent 45%),
+        linear-gradient(135deg, #050711 0%, #0b1528 45%, #140e2e 80%, #071a26 100%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Top Header & Language Switcher */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(167, 139, 250, 0.25));
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      color: var(--accent-cyan);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.18);
+    }
+
+    .brand-text h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .brand-text span {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      padding: 4px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      color: #ffffff;
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+    }
+
+    /* Main Glass Card */
+    .glass-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 44px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--badge-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--accent-cyan);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .page-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, #ffffff 0%, #bae6fd 60%, #ddd6fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .meta-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--glass-highlight);
+    }
+
+    .summary-box {
+      background: rgba(56, 189, 248, 0.07);
+      border: 1px solid rgba(103, 232, 249, 0.22);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+
+    .summary-box h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .summary-box p {
+      font-size: 0.93rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(167, 139, 250, 0.16);
+      border: 1px solid rgba(167, 139, 250, 0.35);
+      color: var(--accent-violet);
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      list-style: none;
+      margin: 12px 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 22px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      color: var(--accent-cyan);
+      font-size: 0.8rem;
+    }
+
+    strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(103, 232, 249, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #ffffff;
+      border-bottom-color: #ffffff;
+    }
+
+    .contact-card {
+      margin-top: 32px;
+      padding: 22px 24px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-card p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 14px 60px;
+      }
+      .glass-card {
+        padding: 26px 20px;
+        border-radius: 22px;
+      }
+      .page-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Üst Bar ve Dil Seçici -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">❝</div>
+        <div class="brand-text">
+          <h1>Kanki</h1>
+          <span>com.kanki.quotes</span>
+        </div>
+      </div>
+
+      <div class="lang-switch" role="tablist" aria-label="Language Switcher">
+        <button id="btn-tr" class="lang-btn active" onclick="setLang('tr')">Türkçe</button>
+        <button id="btn-en" class="lang-btn" onclick="setLang('en')">English</button>
+      </div>
+    </header>
+
+    <!-- ================= TÜRKÇE İÇERİK ================= -->
+    <main id="content-tr" class="glass-card">
+      <div class="hero-badge">✦ Resmi Aydınlatma Metni</div>
+      <h1 class="page-title">Gizlilik Politikası</h1>
+      <div class="meta-date">
+        <strong>Yürürlük Tarihi:</strong> 10 Kasım 2026 &nbsp;•&nbsp; <strong>Son Güncelleme:</strong> 10 Kasım 2026
+      </div>
+
+      <div class="summary-box">
+        <h3>✦ Kısaca Gizlilik Taahhüdümüz</h3>
+        <p>
+          <strong>Kanki</strong> ("Uygulama"), üyelik veya hesap oluşturma zorunluluğu olmadan çalışır.
+          Favori sözleriniz, kendi eklediğiniz sözler, hitap isminiz ve bildirim tercihleriniz
+          <strong>yalnızca kendi cihazınızda yerel olarak</strong> saklanır ve hiçbir sunucumuza aktarılmaz.
+        </p>
+      </div>
+
+      <section>
+        <h2><span class="num">1</span> Toplanan ve Cihazda Saklanan Veriler</h2>
+        <p>
+          Kanki, kişisel verilerinizi kendi sunucularında toplamaz, barındırmaz veya üçüncü taraflara satmaz.
+          Uygulama deneyiminizi kişiselleştirmek için aşağıdaki veriler <strong>yalnızca cihazınızın yerel hafızasında</strong>
+          (AsyncStorage ve iOS/Android Widget yerel depolama alanı) tutulur:
+        </p>
+        <ul>
+          <li><strong>Hitap İsmi (İsteğe Bağlı):</strong> Uygulama içinde size hitap edilmesi için girdiğiniz isim veya takma ad.</li>
+          <li><strong>Favoriler ve Özel Sözler:</strong> Beğendiğiniz veya kendi oluşturduğunuz sözler.</li>
+          <li><strong>Kategori ve Tema Tercihleri:</strong> Seçtiğiniz söz kategorileri, bildirim saatleri ve görsel tema ayarları.</li>
+          <li><strong>Widget Verileri:</strong> Ana ekran ve kilit ekranı widget'larında günün sözünü göstermek için kullanılan yerel paylaşım grubu (<code>group.com.kanki.quotes</code>) verileri.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">2</span> Cihaz İzinleri ve Kullanım Amaçları</h2>
+        <p>Uygulama, yalnızca temel işlevlerini yerine getirebilmek için aşağıdaki işletim sistemi izinlerini talep edebilir:</p>
+        <ul>
+          <li><strong>Bildirim İzni (Notifications &amp; Exact Alarm):</strong> Belirlediğiniz saat aralıklarında veya sabit saatlerde size ilham verici söz bildirimleri göndermek için kullanılır.</li>
+          <li><strong>Fotoğraf Galerisi İzni (Photo Library):</strong> Yalnızca söz paylaşım kartının arka planına kendi fotoğrafınızı eklemek istediğinizde kullanılır. Seçtiğiniz görsel tamamen cihaz üzerinde işlenir ve hiçbir sunucuya yüklenmez.</li>
+          <li><strong>Uygulama Takip Şeffaflığı (iOS App Tracking Transparency - ATT):</strong> Size daha alakalı reklamlar sunabilmek ve reklam performansını ölçebilmek adına iOS cihazlarda izniniz sorulur. İzin vermemeniz halinde uygulama tüm özellikleriyle çalışmaya devam eder.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">3</span> Üçüncü Taraf Hizmetler ve Reklamcılık (Google AdMob)</h2>
+        <p>
+          Uygulamamızın ücretsiz olarak sunulabilmesi için <strong>Google Mobile Ads SDK (Google AdMob)</strong> kullanılmaktadır.
+          Google AdMob; reklam gösterimi, reklam sıklığının sınırlandırılması, performans ölçümü ve sahtekarlığın önlenmesi amacıyla aşağıdaki bilgileri otomatik olarak toplayabilir ve işleyebilir:
+        </p>
+        <ul>
+          <li>Cihaz reklam kimliği (iOS için IDFA, Android için Google Advertising ID - AAID)</li>
+          <li>IP adresi (yaklaşık konum tahmini ve güvenlik için)</li>
+          <li>Uygulama içi reklam etkileşimleri (reklam görüntüleme ve tıklama verileri) ve cihaz tanılama bilgileri</li>
+        </ul>
+        <p>
+          Google'ın verileri nasıl işlediği hakkında detaylı bilgi için
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Gizlilik Politikası</a> ve
+          <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google İş Ortağı Siteleri ve Uygulamaları</a>
+          sayfalarını inceleyebilirsiniz. Kişiselleştirilmiş reklamları dilediğiniz zaman cihazınızın
+          <em>Ayarlar &gt; Gizlilik &gt; Reklamlar / Takip</em> menüsünden kapatabilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">4</span> Veri Saklama Süresi ve Verilerin Silinmesi</h2>
+        <p>
+          Kişisel tercihleriniz ve oluşturduğunuz içerikler yalnızca cihazınızda saklandığı için verilerinizin kontrolü tamamen sizdedir:
+        </p>
+        <ul>
+          <li>Uygulamayı cihazınızdan kaldırdığınızda (sildiğinizde) veya uygulama önbelleğini/verilerini temizlediğinizde tüm yerel verileriniz <strong>anında ve kalıcı olarak silinir</strong>.</li>
+          <li>Cihazınızın işletim sistemi ayarlarından reklam kimliğinizi (IDFA/AAID) istediğiniz zaman sıfırlayabilirsiniz.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">5</span> Çocukların Gizliliği</h2>
+        <p>
+          Kanki, 13 yaşın altındaki çocuklardan bilerek kişisel veri toplamaz. Ebeveyn veya yasal vasi iseniz ve çocuğunuzun herhangi bir kişisel bilgi paylaştığını düşünüyorsanız bizimle iletişime geçebilirsiniz.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">6</span> Politika Değişiklikleri</h2>
+        <p>
+          Bu Gizlilik Politikası zaman zaman güncellenebilir. Yapılan değişiklikler bu sayfada yayınlandığı tarihte yürürlüğe girer ve sayfanın üst kısmındaki "Son Güncelleme" tarihi yenilenir.
+        </p>
+      </section>
+
+      <div class="contact-card">
+        <div>
+          <strong>İletişim &amp; Destek</strong>
+          <p>Gizlilik politikamızla ilgili her türlü soru ve talebiniz için bize ulaşabilirsiniz:</p>
+        </div>
+        <a href="mailto:isiki4466@gmail.com">iletisim@kankiapp.com</a>
+      </div>
+    </main>
+
+    <!-- ================= ENGLISH CONTENT ================= -->
+    <main id="content-en" class="glass-card hidden">
+      <div class="hero-badge">✦ Official Privacy Notice</div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <div class="meta-date">
+        <strong>Effective Date:</strong> November 10, 2026 &nbsp;•&nbsp; <strong>Last Updated:</strong> November 10, 2026
+      </div>
+
+      <div class="summary-box">
+        <h3>✦ Our Privacy Commitment in Brief</h3>
+        <p>
+          <strong>Kanki</strong> ("the App") operates without requiring user registration or accounts.
+          Your favorite quotes, custom quotes, preferred nickname, and notification schedules are stored
+          <strong>exclusively locally on your device</strong> and are never transmitted to our servers.
+        </p>
+      </div>
+
+      <section>
+        <h2><span class="num">1</span> Information Stored Locally on Your Device</h2>
+        <p>
+          Kanki does not collect, store, or sell your personal data on external servers. To personalize your experience, the following data is stored <strong>solely in your device's local storage</strong> (AsyncStorage and iOS/Android Widget shared containers):
+        </p>
+        <ul>
+          <li><strong>Nickname (Optional):</strong> The name or nickname you provide so the App can greet you personally.</li>
+          <li><strong>Favorites &amp; Custom Quotes:</strong> Quotes you bookmark or create yourself.</li>
+          <li><strong>Category &amp; Theme Preferences:</strong> Your selected quote categories, notification schedules, and visual theme settings.</li>
+          <li><strong>Widget Data:</strong> Local App Group / SharedPreferences data (<code>group.com.kanki.quotes</code>) used solely to display quotes on your Home Screen and Lock Screen widgets.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">2</span> Device Permissions</h2>
+        <p>The App may request the following system permissions strictly to provide core features:</p>
+        <ul>
+          <li><strong>Notifications (POST_NOTIFICATIONS &amp; SCHEDULE_EXACT_ALARM):</strong> Used to deliver daily inspirational quote notifications at your chosen times.</li>
+          <li><strong>Photo Library:</strong> Requested only when you choose to pick a custom background image from your gallery for sharing a quote card. Selected images are processed entirely on-device and are never uploaded.</li>
+          <li><strong>App Tracking Transparency (iOS ATT):</strong> On iOS devices, we request permission to allow Google AdMob to deliver more relevant ads. If you decline, the App continues to function with full features and shows non-personalized ads.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">3</span> Third-Party Services &amp; Advertising (Google AdMob)</h2>
+        <p>
+          To keep the App free, we use the <strong>Google Mobile Ads SDK (Google AdMob)</strong> to display advertisements.
+          Google AdMob may automatically collect and process certain data for ad delivery, frequency capping, analytics, and fraud prevention:
+        </p>
+        <ul>
+          <li>Device advertising identifiers (IDFA on iOS, Google Advertising ID / AAID on Android)</li>
+          <li>IP address (used for coarse location estimation and security)</li>
+          <li>Ad interaction metrics (impressions, clicks) and basic device diagnostics</li>
+        </ul>
+        <p>
+          To learn more about how Google handles data, please visit the
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a> and
+          <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google Uses Information from Sites or Apps</a>.
+          You can opt out of personalized advertising at any time via your device's <em>Settings &gt; Privacy &gt; Tracking / Ads</em> menu.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">4</span> Data Retention &amp; Deletion</h2>
+        <p>
+          Because your preferences and custom content are stored locally on your device, you have full control over your data:
+        </p>
+        <ul>
+          <li>Uninstalling the App or clearing the App's storage/cache from your device settings <strong>immediately and permanently deletes</strong> all local data.</li>
+          <li>You can reset or disable your device's advertising identifier at any time through your iOS or Android system settings.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="num">5</span> Children's Privacy</h2>
+        <p>
+          Kanki does not knowingly collect personal information from children under the age of 13. If you are a parent or guardian and believe your child has provided personal information, please contact us.
+        </p>
+      </section>
+
+      <section>
+        <h2><span class="num">6</span> Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date.
+        </p>
+      </section>
+
+      <div class="contact-card">
+        <div>
+          <strong>Contact &amp; Support</strong>
+          <p>If you have any questions or requests regarding this Privacy Policy, please contact us:</p>
+        </div>
+        <a href="mailto:iletisim@kankiapp.com">iletisim@kankiapp.com</a>
+      </div>
+    </main>
+
+    <footer class="footer">
+      © 2026 Kanki — Günün Sözü &amp; Motivasyon. Tüm hakları saklıdır. / All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      const trContent = document.getElementById('content-tr');
+      const enContent = document.getElementById('content-en');
+      const btnTr = document.getElementById('btn-tr');
+      const btnEn = document.getElementById('btn-en');
+
+      if (lang === 'en') {
+        trContent.classList.add('hidden');
+        enContent.classList.remove('hidden');
+        btnTr.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+      } else {
+        enContent.classList.add('hidden');
+        trContent.classList.remove('hidden');
+        btnEn.classList.remove('active');
+        btnTr.classList.add('active');
+        document.documentElement.lang = 'tr';
+      }
+    }
+  </script>
+</body>
+</html>

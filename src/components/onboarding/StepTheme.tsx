@@ -76,7 +76,7 @@ export function StepTheme({ selectedTheme, onSelectTheme }: StepThemeProps) {
         </AppText>
 
         <AppText variant="body" tone="muted" style={styles.subtitle}>
-          Seçtiğin atmosfer anında uygulanır. Fısıltılarını hangi ışıkta okumak istersin?
+          Seçtiğin atmosfer anında uygulanır. Kanki'yi hangi ışıkta deneyimlemek istersin?
         </AppText>
       </View>
 

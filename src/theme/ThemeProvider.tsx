@@ -33,7 +33,7 @@ const ThemeContext = createContext<ThemeContextValue>(defaultContextValue);
 
 function resolveThemeId(
   pref: ThemePreference | undefined,
-  systemScheme: ColorSchemeName,
+  systemScheme: ColorSchemeName | null | undefined,
 ): ThemeId {
   if (pref === 'oled' || pref === 'vibrant' || pref === 'warm') {
     return pref;

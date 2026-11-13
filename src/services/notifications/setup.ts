@@ -1,3 +1,4 @@
+
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
@@ -28,7 +29,7 @@ export async function configureNotifications() {
 
     if (Platform.OS === 'android') {
       await Notifications.setNotificationChannelAsync(QUOTE_CHANNEL_ID, {
-        name: 'Günün Sözleri',
+        name: 'Kanki',
         description: 'Seçtiğin setlerden rastgele sözler',
         importance: Notifications.AndroidImportance.DEFAULT,
         vibrationPattern: [0, 120, 80, 120],

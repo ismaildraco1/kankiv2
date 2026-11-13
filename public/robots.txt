@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kanki.app/sitemap.xml
+

@@ -87,54 +87,38 @@ export function QuoteCard({ quote, size = 'compact', meta }: Props) {
           “
         </Text>
 
-        {/* Üst Başlık & Kategori Rozeti */}
-        <View style={styles.header}>
-          <View style={styles.badgeGroup}>
-            <View
-              style={[
-                styles.categoryChip,
-                {
-                  backgroundColor: t.scheme === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.85)',
-                  borderColor: `${category.gradient[0]}66`,
-                },
-              ]}
-            >
-              <LinearGradient colors={category.gradient} style={styles.chipDot} />
-              <AppText
-                variant="overline"
-                style={{ color: category.gradient[0], fontFamily: 'Inter_600SemiBold', fontSize: 10 }}
-              >
-                {category.title}
-              </AppText>
+        {/* Üst Başlık (Yalnızca Günün İlhamı veya zaman bilgisi varsa gösterilir, kategori adı yazmaz) */}
+        {(hero || meta) && (
+          <View style={styles.header}>
+            <View style={styles.badgeGroup}>
+              {hero && (
+                <View
+                  style={[
+                    styles.heroPill,
+                    { backgroundColor: t.goldSoft, borderColor: `${t.gold}55` },
+                  ]}
+                >
+                  <Ionicons name="sparkles" size={11} color={t.gold} />
+                  <AppText
+                    variant="overline"
+                    style={{ color: t.gold, fontSize: 9.5, letterSpacing: 1.2, fontFamily: 'Inter_700Bold' }}
+                  >
+                    GÜNÜN İLHAMI
+                  </AppText>
+                </View>
+              )}
             </View>
 
-            {hero && (
-              <View
-                style={[
-                  styles.heroPill,
-                  { backgroundColor: t.goldSoft, borderColor: `${t.gold}55` },
-                ]}
-              >
-                <Ionicons name="sparkles" size={11} color={t.gold} />
-                <AppText
-                  variant="overline"
-                  style={{ color: t.gold, fontSize: 9.5, letterSpacing: 1.2, fontFamily: 'Inter_700Bold' }}
-                >
-                  GÜNÜN İLHAMI
+            {meta && (
+              <View style={[styles.metaPill, { backgroundColor: t.glass }]}>
+                <Ionicons name="time-outline" size={11} color={t.textFaint} />
+                <AppText variant="overline" tone="faint" style={{ fontSize: 10 }}>
+                  {meta}
                 </AppText>
               </View>
             )}
           </View>
-
-          {meta && (
-            <View style={[styles.metaPill, { backgroundColor: t.glass }]}>
-              <Ionicons name="time-outline" size={11} color={t.textFaint} />
-              <AppText variant="overline" tone="faint" style={{ fontSize: 10 }}>
-                {meta}
-              </AppText>
-            </View>
-          )}
-        </View>
+        )}
 
         {/* Söz Metni */}
         <AppText

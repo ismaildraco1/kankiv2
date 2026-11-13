@@ -2,8 +2,8 @@ import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Notifications from 'expo-notifications';
-import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { router, useFocusEffect } from 'expo-router';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, AppState, Linking, StyleSheet, View } from 'react-native';
 
 import { AppText } from '@/components/AppText';
@@ -25,10 +25,12 @@ import {
   type PermissionState,
 } from '@/services/notifications/setup';
 import { pinAndroidWidget, syncWidgets } from '@/services/widgets/syncWidgets';
+import { currentWidgetQuote } from '@/services/widgets/widgetData';
 import { isExpoGo } from '@/services/widgets/widgetPlatform';
+import { showInterstitial } from '@/services/ads/adService';
 import { useAppStore } from '@/store/useAppStore';
 import { useTheme } from '@/theme/ThemeProvider';
-import { radius } from '@/theme/tokens';
+import { fonts, radius } from '@/theme/tokens';
 import type { NotificationMode, ThemePreference, TimeOfDay } from '@/types';
 import { formatTime, toMinutes } from '@/utils/schedule';
 
@@ -42,6 +44,14 @@ export default function SettingsScreen() {
   const log = useAppStore((s) => s.scheduleLog);
   const [permission, setPermission] = useState<PermissionState>('undetermined');
 
+  // Ayarlar sayfasına girince geçiş reklamı tetikle ve widget'ları tazele
+  useFocusEffect(
+    useCallback(() => {
+      showInterstitial();
+      syncWidgets().catch(() => {});
+    }, [])
+  );
+
   // İzin durumunu kullanıcı ayarlardan dönünce de tazele
   useEffect(() => {
     const refresh = () => getPermissionState().then(setPermission);
@@ -51,6 +61,7 @@ export default function SettingsScreen() {
   }, []);
 
   const upcoming = useMemo(() => log.filter((e) => e.fireAt > Date.now()).length, [log]);
+  const widgetPreviewQuote = useMemo(() => currentWidgetQuote(), [log]);
 
   const onToggleEnabled = async (value: boolean) => {
     if (value && permission !== 'granted') {
@@ -277,6 +288,97 @@ export default function SettingsScreen() {
               </AppText>
             </View>
           </View>
+
+          {/* Canlı Widget & Kilit Ekranı Önizlemesi (Liquid Glass / Frosted Glass Tasarım) */}
+          {widgetPreviewQuote && (
+            <LinearGradient
+              colors={['#070B19', '#0E1B38', '#151030', '#091D2C']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={{
+                paddingHorizontal: 18,
+                paddingVertical: 16,
+                borderRadius: 24,
+                borderWidth: 1,
+                borderColor: 'rgba(103, 232, 249, 0.22)',
+                gap: 10,
+                marginTop: 2,
+                shadowColor: '#38BDF8',
+                shadowOpacity: 0.18,
+                shadowRadius: 16,
+                shadowOffset: { width: 0, height: 6 },
+              }}
+            >
+              {/* Üst: Yüzen Parıltılı Tırnak İkonu */}
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <AppText
+                  variant="title"
+                  style={{
+                    color: '#67E8F9',
+                    fontSize: 22,
+                    lineHeight: 24,
+                    fontFamily: 'Inter_700Bold',
+                    textShadowColor: 'rgba(56, 189, 248, 0.55)',
+                    textShadowRadius: 8,
+                    textShadowOffset: { width: 0, height: 0 },
+                  }}
+                >
+                  ❝
+                </AppText>
+              </View>
+
+              {/* Orta: Ana Söz Gövdesi */}
+              <AppText
+                variant="body"
+                style={{
+                  color: '#FFFFFF',
+                  fontFamily: 'Inter_600SemiBold',
+                  fontSize: widgetPreviewQuote.text.length > 115 ? 14 : 15.5,
+                  lineHeight: widgetPreviewQuote.text.length > 115 ? 20 : 22,
+                  textAlign: 'left',
+                }}
+              >
+                {widgetPreviewQuote.text}
+              </AppText>
+
+              {/* Alt Durum Satırı: Yazar İmzası & Glassmorphic Yenileme/Işıltı Kapsülü */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  marginTop: 2,
+                }}
+              >
+                <AppText
+                  variant="label"
+                  style={{
+                    color: 'rgba(226, 232, 240, 0.72)',
+                    fontFamily: 'Inter_500Medium',
+                    fontSize: 11.5,
+                  }}
+                >
+                  {widgetPreviewQuote.author ? `— ${widgetPreviewQuote.author}` : ''}
+                </AppText>
+
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 4,
+                    paddingHorizontal: 9,
+                    paddingVertical: 4,
+                    borderRadius: 999,
+                    backgroundColor: 'rgba(56, 189, 248, 0.14)',
+                    borderWidth: 1,
+                    borderColor: 'rgba(103, 232, 249, 0.25)',
+                  }}
+                >
+                  <Ionicons name="sparkles" size={11} color="#67E8F9" />
+                </View>
+              </View>
+            </LinearGradient>
+          )}
 
           <View
             style={{
@@ -552,7 +654,7 @@ export default function SettingsScreen() {
             </PressableScale>
           }
         />
-        <SettingRow icon="sparkles-outline" title="Fısıltı" subtitle="Sürüm 1.0.0 · Özel Seçki" />
+        <SettingRow icon="sparkles-outline" title="Kanki" subtitle="Sürüm 1.0.0 · Özel Seçki" />
         <SettingRow
           icon="refresh-outline"
           title="Bildirim Takvimini Yenile"

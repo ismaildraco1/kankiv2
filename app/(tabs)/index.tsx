@@ -75,7 +75,7 @@ export default function HomeScreen() {
     <Screen
       header={<AppHeader />}
       title={displayGreeting}
-      subtitle="Zihnini aydınlatacak ve güne yön verecek fısıltılar."
+      subtitle="Zihnini aydınlatacak ve güne yön verecek sözler."
     >
       {/* ── 1. Bildirim Durumu Adası (Dynamic Island Glass Pill) ── */}
       <PressableScale onPress={() => router.push('/settings')} scaleTo={0.98}>
@@ -99,7 +99,7 @@ export default function HomeScreen() {
               </View>
               <AppText variant="label" style={styles.statusText}>
                 {notificationsOn && next
-                  ? `Sıradaki fısıltı: ${relativeTime(next.fireAt)}`
+                  ? `Sıradaki söz: ${relativeTime(next.fireAt)}`
                   : next
                   ? `Sıradaki widget sözü: ${relativeTime(next.fireAt)}`
                   : 'Kilit ekranı & widget hazır'}

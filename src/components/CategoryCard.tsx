@@ -2,7 +2,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet, View } from 'react-native';
 
-import { countByCategory } from '@/data/quotes';
 import { useTheme } from '@/theme/ThemeProvider';
 import { radius } from '@/theme/tokens';
 import type { Category } from '@/types';
@@ -105,38 +104,6 @@ export function CategoryCard({
             </AppText>
           </View>
 
-          {/* Söz Adedi Rozeti */}
-          <View style={styles.bottomRow}>
-            <View
-              style={[
-                styles.countBadge,
-                {
-                  backgroundColor: active
-                    ? `${category.gradient[0]}22`
-                    : t.scheme === 'dark'
-                    ? 'rgba(255,255,255,0.06)'
-                    : 'rgba(0,0,0,0.04)',
-                },
-              ]}
-            >
-              <Ionicons
-                name="document-text-outline"
-                size={11}
-                color={active ? category.gradient[0] : t.textFaint}
-              />
-              <AppText
-                variant="overline"
-                style={{
-                  color: active ? category.gradient[0] : t.textFaint,
-                  fontSize: 10,
-                  letterSpacing: 1,
-                  fontFamily: 'Inter_600SemiBold',
-                }}
-              >
-                {countByCategory(category.id)} SÖZ
-              </AppText>
-            </View>
-          </View>
         </View>
       </GlassCard>
     </PressableScale>
@@ -149,7 +116,7 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: radius.lg,
-    minHeight: 205,
+    minHeight: 160,
   },
   topAccent: {
     position: 'absolute',
@@ -206,17 +173,5 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 12.5,
     lineHeight: 17,
-  },
-  bottomRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  countBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-    paddingHorizontal: 9,
-    paddingVertical: 4.5,
-    borderRadius: radius.pill,
   },
 });

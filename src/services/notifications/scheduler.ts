@@ -64,8 +64,8 @@ async function doReschedule(): Promise<number> {
       try {
         notificationId = await Notifications.scheduleNotificationAsync({
           content: {
-            title: APP_NAME,
-            body: `“${quote.text}”\n— ${quote.author}`,
+            title: quote.author ? `${APP_NAME} · ${quote.author}` : APP_NAME,
+            body: quote.text,
             data: { quoteId: quote.id, url: `/quote/${quote.id}` },
             sound: 'default',
             // iOS 15+: Odak modlarında gereksiz yere araya girmesin
@@ -137,8 +137,8 @@ export async function sendTestNotification(delaySeconds = 3) {
 
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: `${APP_NAME} · Test`,
-        body: `“${quote.text}”\n— ${quote.author}`,
+        title: quote.author ? `${APP_NAME} · ${quote.author}` : APP_NAME,
+        body: quote.text,
         data: { quoteId: quote.id, url: `/quote/${quote.id}` },
       },
       trigger: {

@@ -129,6 +129,14 @@ export const CATEGORIES: readonly Category[] = [
     // Nostaljik fuşya & sinema gülkurusu
     gradient: ['#BE185D', '#FB7185'],
   },
+  {
+    id: 'latin',
+    title: 'Latin Deyişleri',
+    subtitle: 'Antik Roma’dan zamansız özdeyişler ve anlamları',
+    icon: 'library',
+    // Antik altın & imparatorluk kehribarı
+    gradient: ['#B45309', '#F59E0B'],
+  },
 ] as const;
 
 const byId = new Map(CATEGORIES.map((c) => [c.id, c]));

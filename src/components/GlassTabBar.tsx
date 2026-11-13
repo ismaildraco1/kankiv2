@@ -12,7 +12,11 @@ import type { IconName } from '@/types';
 import { AppText } from './AppText';
 import { PressableScale } from './PressableScale';
 
-export type BottomTabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0];
+export type BottomTabBarProps = Parameters<NonNullable<ComponentProps<typeof Tabs>['tabBar']>>[0] & {
+  navigation?: any;
+  emitter?: any;
+  navigateToTab?: (routeKey: string) => void;
+};
 
 const ICONS: Record<string, [IconName, IconName]> = {
   index: ['sparkles-outline', 'sparkles'],
@@ -22,7 +26,8 @@ const ICONS: Record<string, [IconName, IconName]> = {
 };
 
 /** Ekranın altında yüzen lüks cam ada tab bar */
-export function GlassTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+export function GlassTabBar(props: BottomTabBarProps) {
+  const { state, descriptors } = props;
   const t = useTheme();
   const insets = useSafeAreaInsets();
 
@@ -70,8 +75,15 @@ export function GlassTabBar({ state, descriptors, navigation }: BottomTabBarProp
               accessibilityLabel={label}
               scaleTo={0.94}
               onPress={() => {
-                const event = navigation.emit({ type: 'tabPress', target: route.key, canPreventDefault: true });
-                if (!focused && !event.defaultPrevented) navigation.navigate(route.name, route.params);
+                const event = props.emitter?.emit({ type: 'tabPress', target: route.key, canPreventDefault: true }) ??
+                  props.navigation?.emit?.({ type: 'tabPress', target: route.key, canPreventDefault: true });
+                if (!focused && (!event || !event.defaultPrevented)) {
+                  if (props.navigateToTab) {
+                    props.navigateToTab(route.key);
+                  } else if (props.navigation) {
+                    props.navigation.navigate(route.name, route.params);
+                  }
+                }
               }}
               style={styles.tabWrapper}
             >

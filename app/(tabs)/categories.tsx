@@ -5,6 +5,7 @@ import { CategoryCard } from '@/components/CategoryCard';
 import { PressableScale } from '@/components/PressableScale';
 import { Screen } from '@/components/Screen';
 import { CATEGORIES } from '@/data/categories';
+import { showInterstitial } from '@/services/ads/adService';
 import { useAppStore } from '@/store/useAppStore';
 import { useTheme } from '@/theme/ThemeProvider';
 import type { CategoryId } from '@/types';
@@ -31,6 +32,12 @@ export default function CategoriesScreen() {
         }
       });
     }
+    showInterstitial();
+  };
+
+  const handleToggleCategory = (id: CategoryId) => {
+    toggle(id);
+    showInterstitial();
   };
 
   // 2 sütunlu ızgara
@@ -65,7 +72,7 @@ export default function CategoriesScreen() {
                 key={c.id}
                 category={c}
                 active={enabled.includes(c.id as CategoryId)}
-                onToggle={() => toggle(c.id as CategoryId)}
+                onToggle={() => handleToggleCategory(c.id as CategoryId)}
               />
             ))}
             {row.length === 1 && <View style={{ flex: 1 }} />}

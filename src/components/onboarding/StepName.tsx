@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRef } from 'react';
 import {
+  Image,
   Keyboard,
   Platform,
   StyleSheet,
@@ -23,18 +24,18 @@ interface StepNameProps {
 
 /**
  * 1. Adım: İsim / Hitap
- * - Lüks parıldayan "Fısıltı" logo rozeti
+ * - Lüks parıldayan "Kanki" logo rozeti
  * - "Hoş geldin! ✨ Sana nasıl hitap etmemi istersin?" başlığı
  * - Şeffaf, alt çizgili minimalist giriş alanı
  */
 export function StepName({ name, onChangeName, onSubmit }: StepNameProps) {
   const t = useTheme();
-  const inputRef = useRef<TextInput>(null);
+  const inputRef = useRef<any>(null);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
-        {/* ── Üst: Lüks "Fısıltı" Logo Rozeti ── */}
+        {/* ── Üst: Lüks "Kanki" Logo Rozeti ── */}
         <View style={styles.logoSection}>
           <View
             style={[
@@ -45,21 +46,18 @@ export function StepName({ name, onChangeName, onSubmit }: StepNameProps) {
               },
             ]}
           >
-            <LinearGradient
-              colors={t.accentGradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.logoBadge}
-            >
-
-            </LinearGradient>
+            <Image
+              source={require('../../../assets/logo.png')}
+              style={styles.logoImage}
+              resizeMode="cover"
+            />
           </View>
 
           <AppText
             variant="overline"
             style={[styles.brandOverline, { color: t.accent }]}
           >
-            FISILTI
+            KANKI
           </AppText>
         </View>
 
@@ -74,7 +72,7 @@ export function StepName({ name, onChangeName, onSubmit }: StepNameProps) {
           </AppText>
 
           <AppText variant="body" tone="muted" style={styles.descriptionText}>
-            Fısıltı, her gün seninle kendi adınla konuşsun ve ruhuna dokunan sözleri sana özel kılsın.
+            Kanki, her gün seninle kendi adınla konuşsun ve ruhuna dokunan sözleri sana özel kılsın.
           </AppText>
         </View>
 
@@ -155,12 +153,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
     elevation: 4,
   },
-  logoBadge: {
+  logoImage: {
     width: 68,
     height: 68,
-    borderRadius: 34,
-    alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: 20,
   },
   brandOverline: {
     letterSpacing: 2.4,

@@ -44,7 +44,7 @@ export function StepCategories({
         </AppText>
 
         <AppText variant="display" style={styles.title}>
-          Hangi fısıltılar ruhuna dokunsun?
+          Hangi sözler ruhuna dokunsun?
         </AppText>
 
         <AppText variant="body" tone="muted" style={styles.subtitle}>
@@ -191,7 +191,7 @@ export function StepCategories({
         >
           {selectedCategories.length === 0
             ? 'Lütfen devam etmek için en az bir tema seç.'
-            : 'Fısıltı akışında bu temalardan sözler derlenecek.'}
+            : 'Kanki akışında bu temalardan sözler derlenecek.'}
         </AppText>
       </View>
     </View>

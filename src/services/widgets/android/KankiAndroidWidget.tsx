@@ -4,17 +4,30 @@ import { FlexWidget, TextWidget } from 'react-native-android-widget';
 import type { QuoteWidgetProps } from '../widgetData';
 
 /**
- * Android için Kilit Ekranı / Ana Sayfa Widget Tasarımı
- * react-native-android-widget FlexWidget ve TextWidget bileşenleri ile oluşturuldu.
- * Tıklandığında doğrudan ilgili söze deep-link açar.
+ * Android Ana Ekran / Kilit Ekranı Widget Tasarımı — "Liquid Glass" (Buzlu Cam Estetiği)
+ *
+ * - Derin koyu baz zemin (#070B19) ve ince yarı saydam neon cam çerçeve (1px cyan/beyaz vurgu)
+ * - Sol üstte parıltılı tırnak ikonu ("❝")
+ * - Ortada dinamik ölçeklenen (adjustsFontSizeToFit) kalın, ferah söz tipografisi
+ * - En altta sağ/sol hizalı yazar imzası ve zarif cam kapsül rozeti
  */
 export function KankiAndroidWidget({
   text = 'Her yeni gün, taze bir başlangıçtır.',
   author = 'Kanki',
-  category = 'GÜNÜN SÖZÜ',
-  accent = '#A78BFA',
   url = 'kanki://',
 }: Partial<QuoteWidgetProps>) {
+  const len = text.length;
+  const fontSize =
+    len <= 45
+      ? 16.5
+      : len <= 80
+      ? 15
+      : len <= 115
+      ? 13.5
+      : len <= 150
+      ? 12.5
+      : 11.5;
+
   return (
     <FlexWidget
       style={{
@@ -23,82 +36,99 @@ export function KankiAndroidWidget({
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        padding: 16,
-        borderRadius: 22,
-        backgroundColor: '#0C0A1D',
-        borderColor: 'rgba(255, 255, 255, 0.12)',
+        paddingHorizontal: 18,
+        paddingVertical: 14,
+        borderRadius: 24,
+        backgroundColor: 'rgba(8, 13, 28, 0.86)',
+        borderColor: 'rgba(103, 232, 249, 0.22)',
         borderWidth: 1,
       }}
       clickAction="OPEN_URI"
       clickActionData={{ uri: url }}
     >
-      {/* Başlık Satırı */}
+      {/* Üst Katman: Yüzen Parıltılı Tırnak İkonu */}
       <FlexWidget
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
           width: 'match_parent',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
         <TextWidget
-          text={category.toUpperCase()}
+          text="❝"
           style={{
-            color: accent as `#${string}`,
-            fontSize: 11,
-            fontWeight: 'bold',
-            letterSpacing: 1,
-          }}
-        />
-        <TextWidget
-          text="✦ KANKI"
-          style={{
-            color: 'rgba(255, 255, 255, 0.4)',
-            fontSize: 10,
-            fontWeight: 'bold',
+            color: '#67E8F9',
+            fontSize: 18,
+            fontWeight: '700',
           }}
         />
       </FlexWidget>
 
-      {/* Söz Metni */}
+      {/* Orta Katman: Ana Söz Metni (Dinamik Boyutlandırma + Geniş Nefes Alanı) */}
       <FlexWidget
         style={{
+          width: 'match_parent',
           flexDirection: 'column',
           justifyContent: 'center',
-          width: 'match_parent',
-          marginVertical: 6,
+          paddingVertical: 4,
         }}
       >
         <TextWidget
-          text={`“${text}”`}
-          maxLines={3}
+          text={text}
+          maxLines={5}
           truncate="END"
           style={{
             color: '#FFFFFF',
-            fontSize: 14,
+            fontSize,
             fontWeight: '600',
-            lineHeight: 20,
+            textAlign: 'left',
+            adjustsFontSizeToFit: true,
           }}
         />
       </FlexWidget>
 
-      {/* Yazar */}
+      {/* Alt Durum Satırı: Yazar İmzası & Cam Kapsül (Glassmorphism Pill) */}
       <FlexWidget
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
           width: 'match_parent',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
         }}
       >
         <TextWidget
-          text={`— ${author}`}
+          text={author ? `— ${author}` : ''}
+          maxLines={1}
+          truncate="END"
           style={{
-            color: '#C4B5FD',
-            fontSize: 12,
-            fontStyle: 'italic',
+            color: 'rgba(226, 232, 240, 0.72)',
+            fontSize: 11.5,
+            fontWeight: '500',
           }}
         />
+
+        <FlexWidget
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            paddingHorizontal: 9,
+            paddingVertical: 3,
+            borderRadius: 999,
+            backgroundColor: 'rgba(56, 189, 248, 0.14)',
+            borderColor: 'rgba(103, 232, 249, 0.25)',
+            borderWidth: 1,
+          }}
+        >
+          <TextWidget
+            text="✦"
+            style={{
+              color: '#67E8F9',
+              fontSize: 10,
+              fontWeight: '600',
+            }}
+          />
+        </FlexWidget>
       </FlexWidget>
     </FlexWidget>
   );

@@ -1,8 +1,10 @@
 {
   "expo": {
-    "name": "Kanki - Günün Sözleri",
+    "name": "Kanki",
     "slug": "kankiv2",
-    "version": "1.0.0",
+    "version": "1.0.3",
+    "description": "Günün ilham veren sözleri, motivasyon bildirimleri ve estetik kilit ekranı widget'ı.",
+    "primaryColor": "#8B5CF6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "kanki",
@@ -10,28 +12,37 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.kanki.quotes",
+      "buildNumber": "1",
       "infoPlist": {
         "UIBackgroundModes": [
           "fetch",
           "remote-notification",
           "processing"
+        ],
+        "ITSAppUsesNonExemptEncryption": false,
+        "GADApplicationIdentifier": "ca-app-pub-9488860514529599~1287950257",
+        "NSUserTrackingUsageDescription": "Bu izin, size daha ilgili ve kaliteli reklamlar sunabilmek için kullanılır.",
+        "SKAdNetworkItems": [
+          {
+            "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork"
+          }
         ]
       }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#07070F",
+        "backgroundColor": "#000000",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "package": "com.kanki.quotes",
+      "versionCode": 1,
       "permissions": [
         "android.permission.RECEIVE_BOOT_COMPLETED",
         "android.permission.SCHEDULE_EXACT_ALARM",
         "android.permission.POST_NOTIFICATIONS",
-        "android.permission.VIBRATE",
-        "android.permission.RECORD_AUDIO"
+        "android.permission.VIBRATE"
       ],
       "predictiveBackGestureEnabled": false
     },
@@ -89,12 +100,27 @@
               "label": "Kanki - Günün Sözü",
               "description": "Kilit ekranı ve ana sayfada günün ilham verici sözleri",
               "minWidth": "320dp",
-              "minHeight": "110dp",
+              "minHeight": "155dp",
               "targetCellWidth": 4,
               "targetCellHeight": 2,
+              "minResizeWidth": "250dp",
+              "minResizeHeight": "110dp",
+              "maxResizeWidth": "540dp",
+              "maxResizeHeight": "420dp",
+              "resizeMode": "horizontal|vertical",
+              "widgetCategory": "home_screen|keyguard",
               "updatePeriodMillis": 1800000
             }
           ]
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-9488860514529599~1287950257",
+          "iosAppId": "ca-app-pub-9488860514529599~1287950257",
+          "delayAppMeasurementInit": false,
+          "userTrackingUsageDescription": "Bu izin, size daha ilgili ve kaliteli reklamlar sunabilmek için kullanılır."
         }
       ]
     ],
@@ -121,5 +147,9 @@
         "projectId": "e98ce194-4f68-4f77-b48b-c519cd245988"
       }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-9488860514529599~1287950257",
+    "ios_app_id": "ca-app-pub-9488860514529599~1287950257"
   }
 }
