@@ -11,8 +11,15 @@ export const ADMOB_APP_IDS = {
   android: 'ca-app-pub-9488860514529599~1287950257',
 } as const;
 
-/** Test modu kapalı — doğrudan gerçek (canlı) AdMob reklam birimi kullanılır */
-export const USE_TEST_ADS = false;
+/**
+ * Test modu: true iken Google'ın herkese açık test reklam birimi kullanılır
+ * (TestFlight / geliştirme denemelerinde kendi canlı reklamına tıklayıp AdMob
+ * hesabını riske atmamak için). Mağaza yayını öncesi false yapılmalıdır.
+ */
+export const USE_TEST_ADS = true;
+
+/** Google'ın resmi test geçiş reklamı birimi (iOS ve Android için aynı) */
+const TEST_INTERSTITIAL_UNIT = 'ca-app-pub-3940256099942544/1033173712';
 
 /** Gerçek Geçiş (Interstitial) Reklam Birimi Kimlikleri */
 export const PRODUCTION_AD_UNITS = {
@@ -23,11 +30,13 @@ export const PRODUCTION_AD_UNITS = {
 } as const;
 
 export const AD_UNIT_IDS = {
-  interstitial: Platform.select({
-    ios: PRODUCTION_AD_UNITS.interstitial.ios,
-    android: PRODUCTION_AD_UNITS.interstitial.android,
-    default: PRODUCTION_AD_UNITS.interstitial.ios,
-  }) as string,
+  interstitial: USE_TEST_ADS
+    ? TEST_INTERSTITIAL_UNIT
+    : (Platform.select({
+        ios: PRODUCTION_AD_UNITS.interstitial.ios,
+        android: PRODUCTION_AD_UNITS.interstitial.android,
+        default: PRODUCTION_AD_UNITS.interstitial.ios,
+      }) as string),
 };
 
 /**
