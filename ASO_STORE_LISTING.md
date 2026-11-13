@@ -135,7 +135,7 @@ Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamla
 ## 7. Teknik Yayına Hazırlık Kontrol Listesi
 
 - [x] **RECORD_AUDIO İzni Kaldırıldı**: Gereksiz mikrofon izni temizlendi.
-- [ ] **Sürüm numaraları**: `version` 1.1.0. Daha önce mağazaya build yüklendiyse `buildNumber` (iOS) ve `versionCode` (Android) artırılmalı; şu an ikisi de 1.
+- [x] **Sürüm numaraları**: `version` 1.1.0, `buildNumber` "2", `versionCode` 2. `eas.json` production profilinde `autoIncrement` açık (`appVersionSource: remote`); sonraki build'lerde numaralar EAS tarafından otomatik artar.
 - [x] **Web SEO & Meta Tags**: `app/+html.tsx` içinde Schema.org ve OpenGraph etiketleri.
 - [x] **robots.txt & sitemap.xml**: `public/` altında.
 - [x] **App Icon & Adaptive Icon**: Simge ve Android adaptive katmanları hazır.
