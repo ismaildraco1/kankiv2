@@ -12,6 +12,8 @@ interface Props {
   strong?: boolean;
   padded?: boolean;
   glowColor?: string;
+  /** İçerik kutusunun stili (kart minHeight ile büyüdüğünde içeriği hizalamak için) */
+  contentStyle?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -28,6 +30,7 @@ export function GlassCard({
   strong,
   padded = true,
   glowColor,
+  contentStyle,
 }: PropsWithChildren<Props>) {
   const t = useTheme();
 
@@ -67,7 +70,7 @@ export function GlassCard({
       />
 
       {/* 4. İçerik */}
-      <View style={padded ? styles.pad : undefined}>{children}</View>
+      <View style={[styles.content, padded && styles.pad, contentStyle]}>{children}</View>
     </View>
   );
 }
@@ -88,6 +91,10 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 1.5,
+  },
+  // Kart minHeight ile uzasa bile içerik kutusu tamamını doldurur (iç gradient'ler boşta kalmaz)
+  content: {
+    flexGrow: 1,
   },
   pad: {
     padding: 22,

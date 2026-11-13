@@ -54,7 +54,8 @@ export function QuoteCard({ quote, size = 'compact', meta }: Props) {
       <GlassCard
         strong={hero}
         glowColor={hero ? category.gradient[0] : undefined}
-        style={[hero ? styles.heroCard : styles.compactCard]}
+        style={hero ? styles.heroCard : styles.compactCard}
+        contentStyle={styles.cardContent}
       >
         {/* Kategoriye özel zengin iç aurora ışıltısı */}
         <LinearGradient
@@ -225,10 +226,11 @@ function ActionPill({
 const styles = StyleSheet.create({
   heroCard: {
     minHeight: 240,
-    justifyContent: 'space-between',
   },
   compactCard: {
     minHeight: 180,
+  },
+  cardContent: {
     justifyContent: 'space-between',
   },
   topColorLine: {
