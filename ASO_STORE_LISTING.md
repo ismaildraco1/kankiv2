@@ -1,119 +1,143 @@
-# 🚀 Kanki - ASO & Mağaza Yayınlama Kiti (App Store & Google Play)
+# Kanki - ASO & Mağaza Yayınlama Kiti (App Store & Google Play)
 
-Bu belge, **Kanki** uygulamasını Google Play Console ve Apple App Store Connect'e yüklerken doğrudan kopyala-yapıştır yapabileceğiniz optimize edilmiş başlık, açıklama, anahtar kelimeler ve mağaza ayarlarını içerir.
+Bu belge, **Kanki** uygulamasını Google Play Console ve Apple App Store Connect'e yüklerken kullanılacak başlık, açıklama, anahtar kelimeler ve inceleme notlarını içerir. Metinler uygulamanın **v1.1.0** sürümündeki gerçek özelliklere göre yazılmıştır.
 
 ---
 
-## 📱 1. Google Play Console İçin ASO Metinleri
+## 1. Google Play Console İçin ASO Metinleri
 
 ### Uygulama Adı (Maksimum 30 Karakter)
-> **Kanki: Günlük Motivasyon Sözü** *(29 karakter)*  
-> *Alternatif:* `Kanki - Günün İlham Veren Sözü` *(30 karakter)*
+> **Kanki: Ruh Haline Göre Sözler**
+> *Alternatif:* `Kanki: Günlük Motivasyon Sözü`
 
 ### Kısa Açıklama (Maksimum 80 Karakter)
-> **Her gün ilham veren sözler, motivasyon bildirimleri ve kilit ekranı widget'ı.** *(77 karakter)*
+> **Bugün nasıl hissediyorsun? Ruh haline göre sözler, bildirimler ve widget.**
 
 ### Tam Açıklama (Maksimum 4000 Karakter)
 ```text
-Zihnini aydınlatacak, ruhuna dokunacak ve her güne taze bir motivasyonla başlamanı sağlayacak en estetik alıntılar Kanki ile cebinde!
+Bugün nasıl hissediyorsun? Kanki, ruh haline göre seçilmiş sözleri ana sayfana getirir.
 
-Kanki; felsefe, edebiyat, kişisel gelişim, mindfulness ve hayat derslerinden özenle derlenmiş 1000'den fazla ilham verici sözü modern, minimalist ve göz yormayan cam tasarımıyla sana sunar.
+Kanki; motivasyon, felsefe, başarı, huzur, sevgi, cesaret, şiir ve daha pek çok başlıkta, 1.000'e yakın sözü sade ve göz yormayan bir arayüzle sunar.
 
-✨ ÖNE ÇIKAN ÖZELLİKLER:
+ÖNE ÇIKAN ÖZELLİKLER
+
+✦ Ruh Haline Göre Söz Seti
+Ana sayfada "Bugün nasıl hissediyorsunuz?" sorusunu yanıtla: Enerjik, Huzurlu, Aşık, Kırgın, Kararlı ya da Düşünceli. Sana özel hazırlanan söz setini ana sayfana atamak isteyip istemediğin sorulur; onaylarsan seçimin kaydedilir. İstediğin an sıfırlayıp kendi kategorilerine dönebilirsin.
+
+✦ Günün Sözü ve Keşfet
+Her gün seçilmiş bir söz seni karşılar. Kategori çiplerine dokunarak yeni sözler keşfet, karıştır, favorilerine ekle.
 
 ✦ Kilit Ekranı ve Ana Ekran Widget'ları
-Uygulamayı açmana bile gerek kalmadan günün sözünü doğrudan kilit ekranında veya ana sayfanda gör. Her baktığında zihnini tazeleyen estetik widget deneyimi.
+Uygulamayı açmadan günün sözünü kilit ekranında veya ana ekranda gör.
 
-✦ Akıllı ve Kişiselleştirilmiş Bildirimler
-Günün koşturmacasında durup nefes alman için belirlediğin saatlerde veya rastgele akışla sana özel bildirimler al. Spam yok, yalnızca tam vaktinde ilham var.
+✦ Zamanlanabilir Bildirimler
+Belirlediğin saat aralığında rastgele ya da sabit saatlerde bildirim al. Gün ve sıklığı sen seçersin.
 
-✦ Zengin Tematik Söz Setleri
-Ruh haline göre odaklanmak istediğin kategorileri seç:
-• Motivasyon & Başarı
-• Felsefe & Stoacılık (Marcus Aurelius, Seneca, Epiktetos)
-• Bilgelik & Hayat Dersleri
-• Zihin & İç Huzur (Mindfulness)
-• Sevgi & İlişkiler
-• Günlük Pozitif Olumlamalar
+✦ Seçebileceğin Söz Setleri
+Motivasyon, Felsefe, Başarı, Huzur, Sevgi, Cesaret, Şiir & Şair, Latin Deyişleri ve daha fazlası.
 
-✦ Estetik Hikaye & Fotoğraf Paylaşım Stüdyosu
-Beğendiğin bir sözü Instagram, WhatsApp veya TikTok hikayelerinde paylaşmak hiç bu kadar kolay olmamıştı! Kendi fotoğrafını arka plan yap, font ve cam kart stillerini özelleştir, tek dokunuşla paylaş.
+✦ Hikaye ve Paylaşım Stüdyosu
+Beğendiğin sözü kendi fotoğrafınla ya da hazır arka planlarla bir kart haline getir, tek dokunuşla paylaş.
 
-✦ %100 Gizlilik Odaklı ve Reklamsız Deneyim
-Kayıt olmak, e-posta vermek veya hesap açmak zorunda değilsin. Tüm verilerin, favorilerin ve tercihleriniz yalnızca kendi cihazında saklanır.
+✦ Üç Farklı Tema
+Gece Yarısı (saf siyah), Kızıl Akşam (sıcak, koyu) ve Adaçayı (açık) temalarından birini seç.
 
-✦ Lüks Minimalizm & Özel Temalar
-Göz alıcı karanlık mod (Midnight Obsidian), derin mor (Amethyst Glow) ve sade açık mod seçenekleriyle günün her saatinde kusursuz okuma keyfi.
+GİZLİLİK VE REKLAMLAR
+Hesap açman ya da e-posta vermen gerekmez. Favorilerin, seçtiğin kategoriler ve ruh hali tercihin yalnızca cihazında saklanır. Kanki ücretsizdir ve reklam içerir; reklamlar Google AdMob tarafından sunulur. Ayrıntılar gizlilik politikamızda yer alır.
 
-Kendine her gün bir dakikalık bir ilham molası ver. Kanki'yi hemen indir ve gününü aydınlat!
+Kendine her gün kısa bir ilham molası ver.
 ```
 
 ---
 
-## 🍏 2. Apple App Store Connect İçin ASO Metinleri
+## 2. Apple App Store Connect İçin ASO Metinleri
 
 ### App Name (Maksimum 30 Karakter)
-> **Kanki: Günlük Motivasyon** *(24 karakter)*
+> **Kanki: Günlük Motivasyon**
 
 ### Subtitle / Alt Başlık (Maksimum 30 Karakter)
-> **İlham Veren Sözler & Widget** *(28 karakter)*
+> **Ruh Haline Göre Günün Sözü**
 
-### Keywords / Anahtar Kelimeler (Maksimum 100 Karakter, Virgülle Ayrılmış, Boşluksuz)
-> **motivasyon,günün sözü,sözler,alıntı,felsefe,ilham,widget,kilit ekranı,gelişim,kitap,alıntılar,özlü sözler** *(99 karakter)*
+### Keywords (Maksimum 100 Karakter, Virgülle Ayrılmış, Boşluksuz)
+> **motivasyon,günün sözü,sözler,alıntı,ruh hali,felsefe,ilham,widget,kilit ekranı,özlü sözler,şiir**
 
 ### Promotional Text (Maksimum 170 Karakter - İsteğe Bağlı)
-> **Günün sözü kilit ekranında! Her gün ilham veren alıntılar, dakik motivasyon bildirimleri ve estetik hikaye stüdyosu ile Kanki yanında.** *(135 karakter)*
+> **Bugün nasıl hissediyorsun? Ruh haline göre söz setini ana sayfana ata; günün sözü kilit ekranında, istediğin saatte bildirimle yanında.**
+
+### Reklam ve İzleme (App Privacy / ATT)
+- Uygulama Google AdMob reklamları gösterir. App Store Connect'te **App Privacy** bölümünde reklam amaçlı cihaz kimliği / kullanım verisi toplandığı beyan edilmelidir.
+- Uygulama izleme izni (ATT) ister; izin metni `app.json` içinde tanımlıdır.
+- Mağaza metninde "reklamsız" ifadesi **kullanılmaz** (uygulama reklam içerir).
 
 ---
 
-## 🏷️ 3. Kategori, Etiketler ve Yaş Derecelendirmesi
+## 3. Kategori, Etiketler ve Yaş Derecelendirmesi
 
 | Platform | Birincil Kategori | İkincil Kategori | Yaş Derecelendirmesi |
 | :--- | :--- | :--- | :--- |
 | **Google Play** | Yaşam Tarzı (Lifestyle) | Kitaplar ve Referans | PEGI 3 (Genel İzleyici) |
 | **App Store** | Lifestyle (Yaşam Tarzı) | Books (Kitaplar) | 4+ |
 
+> Not: "Acılı Sözler" ve "Kurtlar Vadisi" gibi içerik setleri yaş derecelendirme anketinde (şiddet / olgun temalar) dürüstçe değerlendirilmelidir.
+
 ### Google Play Etiketleri (Tags)
 1. Motivasyon
 2. Alıntılar / Sözler
 3. Kişisel Gelişim
 4. Yaşam Tarzı
-5. Üretkenlik / Bilgelik
+5. Ruh Hali
 
 ---
 
-## 📸 4. Mağaza Ekran Görüntüleri (Screenshots) Kılavuzu
+## 4. Mağaza Ekran Görüntüleri Kılavuzu
 
-Kullanıcıların indirme oranını (Conversion Rate) artırmak için mağazaya yüklenecek ilk 4 ekran görüntüsünün üzerindeki başlıklar şunlar olmalıdır:
-
-1. **Ekran 1 (Ana Sayfa / Hero Card):**
+1. **Ekran 1 (Ana Sayfa / Günün Sözü):**
    * Başlık: *"Her Güne Yeni Bir İlhamla Başla"*
-   * Açıklama: *"Günün en etkileyici sözü ve minimalist cam tasarımı."*
-2. **Ekran 2 (Widget Önizlemesi):**
+   * Açıklama: *"Günün sözü ve sade, okunaklı tasarım."*
+2. **Ekran 2 (Ruh Hali Seçici + Onay Penceresi):**
+   * Başlık: *"Bugün Nasıl Hissediyorsun?"*
+   * Açıklama: *"Ruh haline özel söz setini ana sayfana ata."*
+3. **Ekran 3 (Widget Önizlemesi):**
    * Başlık: *"Kilit Ekranında Canlı Sözler"*
-   * Açıklama: *"Telefonunu her açtığında zihnini tazeleyen widget desteği."*
-3. **Ekran 3 (Setler / Kategoriler):**
-   * Başlık: *"Ruhuna Dokunan Konuları Seç"*
-   * Açıklama: *"Felsefe, Stoacılık, Başarı, İç Huzur ve daha fazlası."*
+   * Açıklama: *"Uygulamayı açmadan günün sözünü gör."*
 4. **Ekran 4 (Hikaye Paylaşım Stüdyosu):**
-   * Başlık: *"Tek Dokunuşla Hikayende Paylaş"*
-   * Açıklama: *"Kendi fotoğraflarınla estetik söz kartları hazırla."*
+   * Başlık: *"Tek Dokunuşla Paylaş"*
+   * Açıklama: *"Kendi fotoğrafınla söz kartları hazırla."*
+5. **Ekran 5 (Temalar):**
+   * Başlık: *"Üç Farklı Atmosfer"*
+   * Açıklama: *"Gece Yarısı, Kızıl Akşam ve Adaçayı."*
 
 ---
 
-## 🔒 5. Gizlilik Politikası ve Destek Linkleri (Zorunlu)
+## 5. App Review / Play İnceleme Notları (Spam ve Özgünlük)
 
-Mağaza onayları için public bir Privacy Policy bağlantısı zorunludur:
-- **Gizlilik Politikası URL'i:** `https://kanki.app/privacy.html` (Veya projedeki `public/privacy.html` dosyasını GitHub Pages / Netlify / Vercel üzerine koyabilirsiniz)
+İnceleme ekibine verilecek notta, uygulamanın kalıcı değeri ve ayırt edici yönleri açıkça anlatılmalıdır (aşağıdaki metin kopyalanabilir):
+
+```text
+Kanki, kullanıcının o günkü ruh haline göre söz seti öneren ve bunu ana sayfaya kalıcı olarak atayan bir uygulamadır. Ayırt edici işlevler:
+1) Ruh hali seçimi ve onaya bağlı kalıcı söz seti (ana sayfa içeriğini kişiselleştirir).
+2) Kilit ekranı / ana ekran widget'ları (iOS ve Android).
+3) Zamanlanabilir yerel bildirimler (rastgele veya sabit saatler).
+4) Kullanıcının kendi fotoğrafıyla söz kartı üretip paylaşabildiği stüdyo.
+Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamları içerir.
+```
+
+---
+
+## 6. Gizlilik Politikası ve Destek Linkleri (Zorunlu)
+
+- **Gizlilik Politikası URL'i:** `https://kanki.app/privacy.html` (veya `public/privacy.html` dosyasını GitHub Pages / Netlify / Vercel üzerinde yayınlayın)
 - **Destek / İletişim E-Postası:** `destek@kanki.app`
+- **Yayından önce kontrol:** Gizlilik politikası AdMob reklamlarını, reklam kimliğini ve izleme iznini açıkça anlatmalıdır; `public/privacy.html` ve `privacy-policy.html` şu an bu konuyu yalnızca kısaca ele alıyor, güncellenmelidir.
 
 ---
 
-## ✅ 6. Teknik Yayına Hazırlık Kontrol Listesi
+## 7. Teknik Yayına Hazırlık Kontrol Listesi
 
-- [x] **RECORD_AUDIO İzni Kaldırıldı**: Gereksiz mikrofon izni temizlendi (Google Play ret sebebi önlendi).
-- [x] **VersionCode & Version**: Android `versionCode: 1`, `version: 1.0.0` ve iOS `buildNumber: "1"` eşitlendi.
-- [x] **Web SEO & Meta Tags**: `app/+html.tsx` dosyası tam Schema.org ve OpenGraph etiketleriyle eklendi.
-- [x] **robots.txt & sitemap.xml**: Arama motoru indekslemesi için `public/` altına eklendi.
-- [x] **App Icon & Adaptive Icon**: 1024x1024 simge ve Android adaptive katmanları hazırlandı.
-
+- [x] **RECORD_AUDIO İzni Kaldırıldı**: Gereksiz mikrofon izni temizlendi.
+- [ ] **Sürüm numaraları**: `version` 1.1.0. Daha önce mağazaya build yüklendiyse `buildNumber` (iOS) ve `versionCode` (Android) artırılmalı; şu an ikisi de 1.
+- [x] **Web SEO & Meta Tags**: `app/+html.tsx` içinde Schema.org ve OpenGraph etiketleri.
+- [x] **robots.txt & sitemap.xml**: `public/` altında.
+- [x] **App Icon & Adaptive Icon**: Simge ve Android adaptive katmanları hazır.
+- [ ] **AdMob**: `USE_TEST_ADS` şu an `false`; canlı reklam birimlerinin gerçekten hesabına ait olduğunu doğrula.
+- [ ] **Gizlilik politikası güncellemesi** (bkz. Bölüm 6).
