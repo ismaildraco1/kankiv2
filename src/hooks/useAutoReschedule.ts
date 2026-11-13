@@ -11,6 +11,7 @@ import { useAppStore } from '@/store/useAppStore';
 export function useAutoReschedule(ready: boolean) {
   const notification = useAppStore((s) => s.notification);
   const categories = useAppStore((s) => s.enabledCategories);
+  const homeMood = useAppStore((s) => s.homeMood);
   const first = useRef(true);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export function useAutoReschedule(ready: boolean) {
     }
     const t = setTimeout(() => rescheduleAll().catch(console.warn), 600);
     return () => clearTimeout(t);
-  }, [ready, notification, categories]);
+  }, [ready, notification, categories, homeMood]);
 
   useEffect(() => {
     if (!ready) return;

@@ -14,12 +14,14 @@ export function MoodSelector() {
   const t = useTheme();
   const homeMood = useAppStore((s) => s.homeMood);
   const setHomeMood = useAppStore((s) => s.setHomeMood);
+  const logMood = useAppStore((s) => s.logMood);
   const [pending, setPending] = useState<Mood | null>(null);
 
   const active = getMood(homeMood);
 
   const onPick = (m: Mood) => {
     Haptics.selectionAsync().catch(() => {});
+    logMood(m.id); // seçim bugünün günlük kaydı olur (set onayından bağımsız)
     if (m.id === homeMood) return;
     setPending(m);
   };

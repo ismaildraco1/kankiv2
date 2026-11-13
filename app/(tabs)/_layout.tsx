@@ -15,6 +15,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen name="index" options={{ title: 'Bugün' }} />
+      <Tabs.Screen name="journal" options={{ title: 'Günlük' }} />
       <Tabs.Screen name="categories" options={{ title: 'Setler' }} />
       <Tabs.Screen name="favorites" options={{ title: 'Favoriler' }} />
       <Tabs.Screen name="settings" options={{ title: 'Ayarlar' }} />

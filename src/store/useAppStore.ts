@@ -3,7 +3,8 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 import { DEFAULT_ENABLED_CATEGORIES } from '@/data/categories';
-import type { MoodId } from '@/data/moods';
+import type { MoodId, MoodLog } from '@/data/moods';
+import { dayKey } from '@/utils/format';
 import type {
   CategoryId,
   NotificationMode,
@@ -42,8 +43,15 @@ interface AppState {
   recentQuoteIds: string[];
   /** Kullanıcının onayladığı, ana sayfaya atanmış ruh hali söz seti */
   homeMood: MoodId | null;
+  /** Ruh hali günlüğü: gün anahtarı -> kayıt */
+  moodLog: MoodLog;
 
   setHomeMood: (mood: MoodId | null) => void;
+  /** Bugünün ruh halini kaydeder; mevcut notu korur (note verilirse günceller) */
+  logMood: (mood: MoodId, note?: string) => void;
+  /** Bugünün notunu günceller (kayıt yoksa dikkate alınmaz) */
+  setTodayNote: (note: string) => void;
+  clearMoodLog: () => void;
   setUserName: (userName: string) => void;
   setHasCompletedOnboarding: (completed: boolean) => void;
   setThemePreference: (p: ThemePreference) => void;
@@ -75,7 +83,31 @@ export const useAppStore = create<AppState>()(
       recentQuoteIds: [],
       homeMood: null,
 
+      moodLog: {},
+
       setHomeMood: (homeMood) => set({ homeMood }),
+
+      logMood: (mood, note) =>
+        set((s) => {
+          const key = dayKey();
+          const prev = s.moodLog[key];
+          return {
+            moodLog: {
+              ...s.moodLog,
+              [key]: { mood, note: note ?? prev?.note ?? '', at: Date.now() },
+            },
+          };
+        }),
+
+      setTodayNote: (note) =>
+        set((s) => {
+          const key = dayKey();
+          const prev = s.moodLog[key];
+          if (!prev) return {};
+          return { moodLog: { ...s.moodLog, [key]: { ...prev, note: note.slice(0, 140), at: Date.now() } } };
+        }),
+
+      clearMoodLog: () => set({ moodLog: {} }),
 
       setUserName: (userName) => set({ userName: userName.trim() }),
 
@@ -141,6 +173,7 @@ export const useAppStore = create<AppState>()(
         scheduleLog,
         recentQuoteIds,
         homeMood,
+        moodLog,
       }) => ({
         userName,
         hasCompletedOnboarding,
@@ -151,6 +184,7 @@ export const useAppStore = create<AppState>()(
         scheduleLog,
         recentQuoteIds,
         homeMood,
+        moodLog,
       }),
     },
   ),

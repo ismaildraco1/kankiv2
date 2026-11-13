@@ -20,6 +20,7 @@ export type BottomTabBarProps = Parameters<NonNullable<ComponentProps<typeof Tab
 
 const ICONS: Record<string, [IconName, IconName]> = {
   index: ['sparkles-outline', 'sparkles'],
+  journal: ['calendar-outline', 'calendar'],
   categories: ['grid-outline', 'grid'],
   favorites: ['heart-outline', 'heart'],
   settings: ['options-outline', 'options'],

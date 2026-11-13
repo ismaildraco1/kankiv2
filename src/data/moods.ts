@@ -27,6 +27,25 @@ export function getMood(id: MoodId | null | undefined): Mood | undefined {
   return id ? MOODS.find((m) => m.id === id) : undefined;
 }
 
+/** Günlükteki tek bir gün kaydı. Anahtar yerel tarihtir (YYYY-MM-DD). */
+export interface MoodEntry {
+  mood: MoodId;
+  note: string;
+  /** Son güncelleme zamanı (epoch ms) */
+  at: number;
+}
+
+export type MoodLog = Record<string, MoodEntry>;
+
+/**
+ * Ana sayfa, bildirim ve widget'ların ortak söz havuzu:
+ * ruh hali seti atanmışsa o; yoksa seçili kategoriler.
+ */
+export function resolveQuotePool(enabled: readonly CategoryId[], homeMood: MoodId | null): Quote[] {
+  const moodPool = homeMood ? getQuotesForMood(homeMood) : [];
+  return moodPool.length > 0 ? moodPool : getQuotesByCategories(enabled);
+}
+
 /**
  * Ruh haline uygun söz havuzu. Eşlenen kategorilerin hiçbirinde söz yoksa
  * (veri değişirse) boş döner; çağıran taraf genel havuza düşmelidir.

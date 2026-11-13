@@ -24,6 +24,9 @@ Kanki; motivasyon, felsefe, başarı, huzur, sevgi, cesaret, şiir ve daha pek �
 ✦ Ruh Haline Göre Söz Seti
 Ana sayfada "Bugün nasıl hissediyorsunuz?" sorusunu yanıtla: Enerjik, Huzurlu, Aşık, Kırgın, Kararlı ya da Düşünceli. Sana özel hazırlanan söz setini ana sayfana atamak isteyip istemediğin sorulur; onaylarsan seçimin kaydedilir. İstediğin an sıfırlayıp kendi kategorilerine dönebilirsin.
 
+✦ Ruh Hali Günlüğü
+Her gün tek dokunuşla ruh halini kaydet, istersen kısa bir not ekle. Son 7 günlük görünümde hangi günlerde nasıl hissettiğini, haftanın en baskın ruh halini ve geçmiş kayıtlarını gör. Seçtiğin ruh haline uygun bir söz önerisi günlükte seni bekler. Atadığın söz seti bildirimlerine ve widget'a da yansır. Günlük yalnızca cihazında saklanır, istediğin an temizleyebilirsin.
+
 ✦ Günün Sözü ve Keşfet
 Her gün seçilmiş bir söz seni karşılar. Kategori çiplerine dokunarak yeni sözler keşfet, karıştır, favorilerine ekle.
 
@@ -97,6 +100,7 @@ Kendine her gün kısa bir ilham molası ver.
 2. **Ekran 2 (Ruh Hali Seçici + Onay Penceresi):**
    * Başlık: *"Bugün Nasıl Hissediyorsun?"*
    * Açıklama: *"Ruh haline özel söz setini ana sayfana ata."*
+   * **Ekran 2b (Ruh Hali Günlüğü):** Başlık: *"Ruh Halini Takip Et"* — Açıklama: *"Günlük kayıt, kısa not ve haftalık eğilim."*
 3. **Ekran 3 (Widget Önizlemesi):**
    * Başlık: *"Kilit Ekranında Canlı Sözler"*
    * Açıklama: *"Uygulamayı açmadan günün sözünü gör."*
@@ -114,11 +118,12 @@ Kendine her gün kısa bir ilham molası ver.
 İnceleme ekibine verilecek notta, uygulamanın kalıcı değeri ve ayırt edici yönleri açıkça anlatılmalıdır (aşağıdaki metin kopyalanabilir):
 
 ```text
-Kanki, kullanıcının o günkü ruh haline göre söz seti öneren ve bunu ana sayfaya kalıcı olarak atayan bir uygulamadır. Ayırt edici işlevler:
-1) Ruh hali seçimi ve onaya bağlı kalıcı söz seti (ana sayfa içeriğini kişiselleştirir).
-2) Kilit ekranı / ana ekran widget'ları (iOS ve Android).
-3) Zamanlanabilir yerel bildirimler (rastgele veya sabit saatler).
-4) Kullanıcının kendi fotoğrafıyla söz kartı üretip paylaşabildiği stüdyo.
+Kanki, bir ruh hali takip günlüğü ile ruh haline göre söz önerisini birleştiren bir uygulamadır. Ayırt edici işlevler:
+1) Ruh Hali Günlüğü: günlük ruh hali kaydı, kısa not, son 7 gün görünümü ve haftalık en baskın ruh hali özeti.
+2) Ruh hali seçimi ve onaya bağlı kalıcı söz seti; atanan set ana sayfayı, bildirimleri ve widget'ı kişiselleştirir.
+3) Kilit ekranı / ana ekran widget'ları (iOS ve Android).
+4) Zamanlanabilir yerel bildirimler (rastgele veya sabit saatler).
+5) Kullanıcının kendi fotoğrafıyla söz kartı üretip paylaşabildiği stüdyo.
 Hesap gerekmez; tüm tercihler cihazda saklanır. Uygulama Google AdMob reklamları içerir.
 ```
 

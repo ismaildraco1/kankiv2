@@ -5,6 +5,13 @@ export function greeting(h: number) {
   return 'İyi Akşamlar';
 }
 
+/** Yerel tarihe göre YYYY-MM-DD anahtarı (günlük kayıtları için) */
+export function dayKey(d: Date = new Date()): string {
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}-${m}-${day}`;
+}
+
 export function relativeTime(ts: number) {
   const d = new Date(ts);
   const today = new Date();

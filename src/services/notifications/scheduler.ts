@@ -1,6 +1,6 @@
 import * as Notifications from 'expo-notifications';
 
-import { getQuotesByCategories } from '@/data/quotes';
+import { resolveQuotePool } from '@/data/moods';
 import { useAppStore } from '@/store/useAppStore';
 import type { ScheduledEntry } from '@/types';
 import { buildFireDates, pickQuotes } from '@/utils/schedule';
@@ -34,7 +34,7 @@ export function rescheduleAll(): Promise<number> {
 
 async function doReschedule(): Promise<number> {
   const store = useAppStore.getState();
-  const { notification, enabledCategories, recentQuoteIds } = store;
+  const { notification, enabledCategories, recentQuoteIds, homeMood } = store;
 
   try {
     await Notifications.cancelAllScheduledNotificationsAsync();
@@ -42,7 +42,7 @@ async function doReschedule(): Promise<number> {
     console.warn('[notifications] cancelAllScheduledNotificationsAsync error:', e);
   }
 
-  const pool = getQuotesByCategories(enabledCategories);
+  const pool = resolveQuotePool(enabledCategories, homeMood);
   if (pool.length === 0) {
     store.replaceUpcoming([]);
     await syncWidgets().catch(console.warn);
@@ -130,8 +130,8 @@ export async function refillIfNeeded(): Promise<boolean> {
 /** Ayarlar ekranındaki "Test bildirimi" butonu için */
 export async function sendTestNotification(delaySeconds = 3) {
   try {
-    const { enabledCategories } = useAppStore.getState();
-    const pool = getQuotesByCategories(enabledCategories);
+    const { enabledCategories, homeMood } = useAppStore.getState();
+    const pool = resolveQuotePool(enabledCategories, homeMood);
     const [quote] = pickQuotes(pool, 1, []);
     if (!quote) return;
 

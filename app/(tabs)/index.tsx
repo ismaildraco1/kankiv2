@@ -12,8 +12,8 @@ import { StatusPill } from '@/components/home/StatusPill';
 import { PressableScale } from '@/components/PressableScale';
 import { QuoteCard } from '@/components/QuoteCard';
 import { Screen } from '@/components/Screen';
-import { getQuotesForMood } from '@/data/moods';
-import { getQuotesByCategories, QUOTES } from '@/data/quotes';
+import { resolveQuotePool } from '@/data/moods';
+import { QUOTES } from '@/data/quotes';
 import { useAppStore } from '@/store/useAppStore';
 import { greeting } from '@/utils/format';
 import { quoteOfTheDay } from '@/utils/schedule';
@@ -26,10 +26,7 @@ export default function HomeScreen() {
 
   const homeMood = useAppStore((s) => s.homeMood);
 
-  const pool = useMemo(() => {
-    const moodPool = homeMood ? getQuotesForMood(homeMood) : [];
-    return moodPool.length > 0 ? moodPool : getQuotesByCategories(enabled);
-  }, [enabled, homeMood]);
+  const pool = useMemo(() => resolveQuotePool(enabled, homeMood), [enabled, homeMood]);
   const daily = useMemo(() => quoteOfTheDay(pool.length > 0 ? pool : QUOTES), [pool]);
 
   const now = Date.now();

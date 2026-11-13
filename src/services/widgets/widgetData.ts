@@ -1,5 +1,6 @@
 import { getCategory } from '@/data/categories';
-import { getQuote, getQuotesByCategories, QUOTES } from '@/data/quotes';
+import { resolveQuotePool } from '@/data/moods';
+import { getQuote, QUOTES } from '@/data/quotes';
 import { useAppStore } from '@/store/useAppStore';
 import type { Quote } from '@/types';
 import { quoteOfTheDay } from '@/utils/schedule';
@@ -39,8 +40,8 @@ export function toWidgetProps(quote: Quote): QuoteWidgetProps {
 }
 
 function fallbackQuote(date: Date): Quote | undefined {
-  const { enabledCategories } = useAppStore.getState();
-  const pool = getQuotesByCategories(enabledCategories);
+  const { enabledCategories, homeMood } = useAppStore.getState();
+  const pool = resolveQuotePool(enabledCategories, homeMood);
   return quoteOfTheDay(pool.length > 0 ? pool : QUOTES, date);
 }
 
