@@ -2,7 +2,7 @@
   "expo": {
     "name": "Kanki",
     "slug": "kankiv2",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "description": "Günün ilham veren sözleri, motivasyon bildirimleri ve estetik kilit ekranı widget'ı.",
     "primaryColor": "#8B5CF6",
     "orientation": "portrait",
@@ -147,9 +147,5 @@
         "projectId": "e98ce194-4f68-4f77-b48b-c519cd245988"
       }
     }
-  },
-  "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-9488860514529599~1287950257",
-    "ios_app_id": "ca-app-pub-9488860514529599~1287950257"
   }
 }

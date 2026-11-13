@@ -1151,7 +1151,3 @@ export function getQuotesByCategories(ids: readonly CategoryId[]): Quote[] {
   const set = new Set(ids);
   return QUOTES.filter((q) => set.has(q.categoryId));
 }
-
-export function countByCategory(id: CategoryId): number {
-  return RAW[id].length;
-}

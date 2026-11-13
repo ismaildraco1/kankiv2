@@ -38,7 +38,3 @@ export function isIosWidgetSupported(): boolean {
     return false;
   }
 }
-
-export function isWidgetSupported(): boolean {
-  return isAndroidWidgetSupported() || isIosWidgetSupported();
-}
