@@ -107,15 +107,23 @@ const KankiMoodWidget = (props: MoodWidgetProps, environment: WidgetEnvironment)
 
       <Spacer />
 
+      {/* 7 gün: sütunlar arasına Spacer koyarak şeridi widget genişliğine yayar */}
       <HStack alignment="center" spacing={0}>
-        {week.map((e, i) => (
-          <VStack key={i} spacing={2}>
-            <Text modifiers={[font({ size: 20 })]}>{e}</Text>
-            <Text modifiers={[font({ size: 10 }), foregroundStyle('rgba(255, 240, 236, 0.55)')]}>
+        {week.flatMap((e, i) => [
+          <VStack key={`d${i}`} alignment="center" spacing={3}>
+            <Text modifiers={[font({ size: 22 })]}>{e}</Text>
+            <Text
+              modifiers={[
+                font({ size: 10.5, weight: 'medium' }),
+                lineLimit(1),
+                foregroundStyle('rgba(255, 240, 236, 0.6)'),
+              ]}
+            >
               {days[i] ?? ''}
             </Text>
-          </VStack>
-        ))}
+          </VStack>,
+          i < week.length - 1 ? <Spacer key={`s${i}`} /> : null,
+        ])}
       </HStack>
 
       <Spacer />
