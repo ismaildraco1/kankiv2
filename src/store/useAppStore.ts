@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 import { DEFAULT_ENABLED_CATEGORIES } from '@/data/categories';
+import type { MoodId } from '@/data/moods';
 import type {
   CategoryId,
   NotificationMode,
@@ -39,7 +40,10 @@ interface AppState {
   /** Planlanmış + teslim edilmiş bildirimlerin kaydı (fireAt'e göre sıralı) */
   scheduleLog: ScheduledEntry[];
   recentQuoteIds: string[];
+  /** Kullanıcının onayladığı, ana sayfaya atanmış ruh hali söz seti */
+  homeMood: MoodId | null;
 
+  setHomeMood: (mood: MoodId | null) => void;
   setUserName: (userName: string) => void;
   setHasCompletedOnboarding: (completed: boolean) => void;
   setThemePreference: (p: ThemePreference) => void;
@@ -69,6 +73,9 @@ export const useAppStore = create<AppState>()(
       notification: DEFAULT_NOTIFICATION_SETTINGS,
       scheduleLog: [],
       recentQuoteIds: [],
+      homeMood: null,
+
+      setHomeMood: (homeMood) => set({ homeMood }),
 
       setUserName: (userName) => set({ userName: userName.trim() }),
 
@@ -133,6 +140,7 @@ export const useAppStore = create<AppState>()(
         notification,
         scheduleLog,
         recentQuoteIds,
+        homeMood,
       }) => ({
         userName,
         hasCompletedOnboarding,
@@ -142,6 +150,7 @@ export const useAppStore = create<AppState>()(
         notification,
         scheduleLog,
         recentQuoteIds,
+        homeMood,
       }),
     },
   ),

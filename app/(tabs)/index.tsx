@@ -6,11 +6,13 @@ import { AppHeader } from '@/components/AppHeader';
 import { AppText } from '@/components/AppText';
 import { GlassCard } from '@/components/GlassCard';
 import { DiscoverSection } from '@/components/home/DiscoverSection';
+import { MoodSelector } from '@/components/home/MoodSelector';
 import { RecentList } from '@/components/home/RecentList';
 import { StatusPill } from '@/components/home/StatusPill';
 import { PressableScale } from '@/components/PressableScale';
 import { QuoteCard } from '@/components/QuoteCard';
 import { Screen } from '@/components/Screen';
+import { getQuotesForMood } from '@/data/moods';
 import { getQuotesByCategories, QUOTES } from '@/data/quotes';
 import { useAppStore } from '@/store/useAppStore';
 import { greeting } from '@/utils/format';
@@ -22,7 +24,12 @@ export default function HomeScreen() {
   const notificationsOn = useAppStore((s) => s.notification.enabled);
   const userName = useAppStore((s) => s.userName);
 
-  const pool = useMemo(() => getQuotesByCategories(enabled), [enabled]);
+  const homeMood = useAppStore((s) => s.homeMood);
+
+  const pool = useMemo(() => {
+    const moodPool = homeMood ? getQuotesForMood(homeMood) : [];
+    return moodPool.length > 0 ? moodPool : getQuotesByCategories(enabled);
+  }, [enabled, homeMood]);
   const daily = useMemo(() => quoteOfTheDay(pool.length > 0 ? pool : QUOTES), [pool]);
 
   const now = Date.now();
@@ -40,10 +47,12 @@ export default function HomeScreen() {
       {/* İçerik önce: günün sözü */}
       {daily ? <QuoteCard quote={daily} size="hero" /> : <EmptyCategoriesCard />}
 
-      {/* Slot: ruh hali seçici (Ajan 4) */}
+      {/* Ruh hali seçici: onaylanan set ana sayfa havuzunu belirler */}
+      <MoodSelector />
+
 
       {/* Keşfet: filtre + karıştır + tek söz */}
-      <DiscoverSection pool={pool} excludeId={daily?.id} />
+      <DiscoverSection key={homeMood ?? 'all'} pool={pool} excludeId={daily?.id} />
 
       {/* Sistem durumu ikincil bilgi olarak içeriğin altında */}
       <StatusPill nextAt={nextAt} notificationsOn={notificationsOn} />
