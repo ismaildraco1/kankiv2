@@ -16,7 +16,7 @@ export const ADMOB_APP_IDS = {
  * (TestFlight / geliştirme denemelerinde kendi canlı reklamına tıklayıp AdMob
  * hesabını riske atmamak için). Mağaza yayını öncesi false yapılmalıdır.
  */
-export const USE_TEST_ADS = true;
+export const USE_TEST_ADS = false;
 
 /** Google'ın resmi test geçiş reklamı birimi (iOS ve Android için aynı) */
 const TEST_INTERSTITIAL_UNIT = 'ca-app-pub-3940256099942544/1033173712';
