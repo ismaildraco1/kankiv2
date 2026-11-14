@@ -67,6 +67,17 @@ Kendine her gün kısa bir ilham molası ver.
 ### Promotional Text (Maksimum 170 Karakter - İsteğe Bağlı)
 > **Bugün nasıl hissediyorsun? Ruh haline göre söz setini ana sayfana ata; günün sözü kilit ekranında, istediğin saatte bildirimle yanında.**
 
+### What's New / Bu Sürümde Yenilikler (Maksimum 4000 Karakter)
+```text
+Kanki artık bir ruh hali günlüğü!
+
+• Yeni "Günlük" sekmesi: günlük ruh halini tek dokunuşla kaydet, kısa not ekle, son 7 günlük eğilimini gör.
+• Ruh haline göre söz setleri: seçtiğin ruh haline özel seti ana sayfana, bildirimlerine ve widget'ına ata.
+• Yeni "Ruh Hali" widget'ı: bugünün ruh halin ve 7 günlük şerit, kilit ekranında ve ana ekranda.
+• Yeni tasarım: üç yeni tema (Gece Yarısı, Kızıl Akşam, Adaçayı) ve yeni yazı tipleri.
+• Birçok sözdeki yazım hataları düzeltildi.
+```
+
 ### Reklam ve İzleme (App Privacy / ATT)
 - Uygulama Google AdMob reklamları gösterir. App Store Connect'te **App Privacy** bölümünde reklam amaçlı cihaz kimliği / kullanım verisi toplandığı beyan edilmelidir.
 - Uygulama izleme izni (ATT) ister; izin metni `app.json` içinde tanımlıdır.
