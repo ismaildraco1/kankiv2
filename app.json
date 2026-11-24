@@ -146,8 +146,14 @@
         {
           "androidAppId": "ca-app-pub-9488860514529599~1287950257",
           "iosAppId": "ca-app-pub-9488860514529599~1287950257",
-          "delayAppMeasurementInit": false,
+          "delayAppMeasurementInit": true,
           "userTrackingUsageDescription": "Bu izin, size daha ilgili ve kaliteli reklamlar sunabilmek için kullanılır."
+        }
+      ],
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "Bu izin, size daha ilgili ve kaliteli reklamlar sunabilmek için kullanılır."
         }
       ]
     ],
